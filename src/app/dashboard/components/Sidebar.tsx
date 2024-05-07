@@ -20,7 +20,7 @@ export default function Sidebar({ active }: SidebarProps) {
           <h1 className="text-xl text-center font-semibold">Dashboard</h1>
         </div>
 
-        <div className="text-2xl flex flex-col gap-8">
+        <div className="text-xl flex flex-col gap-8">
           <Link
             href={"/dashboard"}
             className={`flex ${

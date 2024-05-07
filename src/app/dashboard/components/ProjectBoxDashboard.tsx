@@ -1,6 +1,6 @@
 import ProgressBar from "@ramonak/react-progress-bar";
-import { BsArrowRight } from "react-icons/bs";
 import Image from "next/image";
+import { FaChevronRight } from "react-icons/fa";
 
 export interface ProjectBoxDashboardProps {
   imageUrl: string;
@@ -21,7 +21,7 @@ export default function ProjectBoxDashboard({
     <div className="rounded-lg shadow-lg flex gap-8 p-5 w-full items-center">
       <Image
         src={imageUrl}
-        width={140}
+        width={170}
         height={140}
         alt="Logo"
         className="rounded-lg"
@@ -53,7 +53,7 @@ export default function ProjectBoxDashboard({
             </button>
           )}
         </div>
-        <BsArrowRight className="text-4xl cursor-pointer" />
+        <FaChevronRight className="text-3xl cursor-pointer" />
       </div>
     </div>
   );
