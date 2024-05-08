@@ -43,15 +43,15 @@ const Project: React.FC<ProjectProps> = () => {
   const [completed, setCompleted] = useState(false);
 
   return (
-    <div className="min-h-screen flex gap-16 text-primary">
+    <div className="min-h-screen flex gap-16 text-primary ">
       <Sidebar active="projects" />
 
-      <div className="flex flex-col px-[5%] w-3/5">
-        <div className={`w-3/4 pt-[5%] mb-12 text-2xl flex gap-12`}>
+      <div className="flex flex-col px-[5%] w-full md:w-3/5">
+        <div className={`w-full pt-[5%] mb-12 text-xl md:text-2xl flex gap-12`}>
           <p
             className={`${
               completed ? "text-[#8C8C8C]" : "text-primary underline"
-            }  cursor-pointer`}
+            }  cursor-pointer `}
             onClick={() => setCompleted(false)}
           >
             Enrolled Projects
