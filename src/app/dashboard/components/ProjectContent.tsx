@@ -1,9 +1,46 @@
 "use client";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import ProgressBar from "@ramonak/react-progress-bar";
 import Image from "next/image";
+import React from "react";
+
+export interface CreateSoundRequest {
+  text: string;
+}
 
 export default function ProjectContent() {
+  /*
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const handleGetAudio = async (request: CreateSoundRequest) => {
+
+    try {
+      const response = await fetch("/api/generate-sound", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          input: request.text,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch audio data");
+      }
+
+      const data = await response.arrayBuffer();
+
+      const blob = new Blob([data], { type: "audio/mpeg" });
+      const audioUrl = URL.createObjectURL(blob);
+
+      setAudioUrl(audioUrl);
+    } catch (error) {
+      console.error(error)
+    }
+  };
+  Api tts */
+
   const progress = 52;
   return (
     <div className="py-8 px-[11%]">
