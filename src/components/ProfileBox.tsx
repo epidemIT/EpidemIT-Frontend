@@ -32,7 +32,7 @@ const ProfileBox = ({
   };
 
   return (
-    <div className="w-full py-4 px-2 bg-white rounded-xl flex justify-between items-center">
+    <div className="w-fit md:w-full py-4 px-2 bg-white rounded-xl flex justify-between items-center">
       <div className="flex items-center gap-5">
         <div
           className="flex items-center gap-3 relative cursor-pointer"
