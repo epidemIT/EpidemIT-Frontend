@@ -3,7 +3,6 @@ import Sidebar from "./Sidebar";
 import Empty from "./Empty";
 import ProjectBoxDashboard from "./ProjectBoxDashboard";
 import { useState } from "react";
-import Link from "next/link";
 
 interface ProjectProps {
   project: {
@@ -59,12 +58,11 @@ const Project = ({ data }: { data: ProjectProps[] }) => {
         ) : (
           <div className="flex flex-col gap-8">
             {data.map((el, index: number) => (
-              <Link key={index} href={`/dashboard/projects/${el.project.id}`}>
-                <ProjectBoxDashboard
-                  project={el.project}
-                  progress={el.progress}
-                />
-              </Link>
+              <ProjectBoxDashboard
+                key={index}
+                project={el.project}
+                progress={el.progress}
+              />
             ))}
           </div>
         )}
