@@ -45,10 +45,10 @@ export default function ProjectContent() {
   return (
     <div className="py-8 px-[11%]">
       <div className="flex justify-center">
-        <Navbar />
+        <Navbar currentPage="dashboard" />
       </div>
-      <div className="w-full flex gap-16">
-        <div className="w-2/5 flex flex-col gap-12 mt-12">
+      <div className="w-full flex flex-col lg:flex-row gap-16">
+        <div className="lg:w-2/5 flex flex-col gap-12 mt-12">
           <div>
             <h1 className="text-2xl font-bold">Project Name</h1>
             <p className="text-gray-500 text-lg">Project Company</p>
@@ -85,7 +85,7 @@ export default function ProjectContent() {
           </div>
         </div>
 
-        <div className="w-3/5 flex flex-col justify-between">
+        <div className="lg:w-3/5 flex flex-col gap-8 justify-between">
           <div>
             {/* cms shit */}
             <div className="flex justify-between mt-12 items-center">

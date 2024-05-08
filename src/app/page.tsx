@@ -7,17 +7,17 @@ export default function Home() {
   return (
     <div className="">
       <section className="bg-[url('/home-hero.svg')] min-h-screen bg-no-repeat bg-cover py-8">
-        <div className="px-16">
+        <div className="px-4 lg:px-16">
           <Navbar currentPage="Home" home={true} />
         </div>
 
-        <div className="flex gap-28 mt-8 justify-center">
+        <div className="flex pb-20 h-[1000px] gap-28 px-[5%] mt-8 flex-col justify-between lg:items-center xl:flex-row lg:justify-center">
           <Image src="/laptop-hero.svg" width={570} height={50} alt="Logo" />
-          <div className="flex flex-col items-start justify-center gap-4 w-1/4">
-            <h1 className="text-white text-4xl md:text-8xl font-bold">
+          <div className="flex flex-col items-start lg:justify-center gap-4 lg:w-1/4">
+            <h1 className={`text-primary/90 lg:text-white text-6xl md:text-8xl font-bold`}>
               EpidemIT
             </h1>
-            <p className="text-[#C3FFE3] md:text-2xl text-lg">
+            <p className="text-secondary-dark lg:text-[#C3FFE3] md:text-2xl text-2xl">
               Where IT expertise spreads like wildfire, for everyone
             </p>
             <button className="bg-secondary-dark text-white px-12 shadow-2xl text-xl py-2 rounded-full">
@@ -27,7 +27,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#3273A0] min-h-screen px-[15%] py-8">
+      <section className="bg-[#3273A0] px-[15%] py-8">
         <div className="flex flex-col items-center gap-8 py-28">
           <h2 className="text-white text-4xl font-bold">Why EpidemIT?</h2>
           <p className="text-white text-2xl">
@@ -50,9 +50,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="min-h-screen items-center flex flex-col gap-8 py-28">
+      <section className="items-center flex flex-col gap-8 py-28">
         <h1 className="font-semibold text-4xl">Features</h1>
-        <div className="flex gap-20">
+        <div className="flex flex-col lg:flex-row gap-20">
           <div className="rounded-lg w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-8">
             <Image
               src="/mentor-landing.svg"
