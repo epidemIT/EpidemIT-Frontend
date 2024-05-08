@@ -1,7 +1,7 @@
 import ProjectContent from "../../components/ProjectContent";
 
 export default function Page() {
-  const progress = 52;
+  const progress = 91;
   return (
     <>
       <ProjectContent />
