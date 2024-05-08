@@ -48,12 +48,12 @@ export default function ProjectBoxDashboard({
             <>
               <p className="font-semibold mt-4">Progress</p>
               <ProgressBar
-                completed={progress * 100}
+                completed={progress}
                 bgColor="#119ABE"
                 height="10px"
                 isLabelVisible={false}
               />
-              <p>{progress * 100}%</p>
+              <p>{progress}%</p>
             </>
           ) : (
             <button className="bg-[#FF6B2D] px-4 py-2 rounded-full mt-2 text-white">
