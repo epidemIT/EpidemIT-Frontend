@@ -11,10 +11,10 @@ export default function Home() {
           <Navbar currentPage="Home" home={true} />
         </div>
 
-        <div className="flex pb-20 h-[1000px] gap-28 px-[5%] mt-8 flex-col justify-between lg:items-center xl:flex-row lg:justify-center">
+        <div className="flex pb-20 h-[1000px] lg:h-full gap-28 px-[5%] mt-8 flex-col justify-between lg:items-center xl:flex-row lg:justify-center">
           <Image src="/laptop-hero.svg" width={570} height={50} alt="Logo" />
           <div className="flex flex-col items-start lg:justify-center gap-4 lg:w-1/4">
-            <h1 className={`text-primary/90 lg:text-white text-6xl md:text-8xl font-bold`}>
+            <h1 className={`text-primary lg:text-white text-6xl md:text-8xl font-bold`}>
               EpidemIT
             </h1>
             <p className="text-secondary-dark lg:text-[#C3FFE3] md:text-2xl text-2xl">
@@ -52,8 +52,8 @@ export default function Home() {
 
       <section className="items-center flex flex-col gap-8 py-28">
         <h1 className="font-semibold text-4xl">Features</h1>
-        <div className="flex flex-col lg:flex-row gap-20">
-          <div className="rounded-lg w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-8">
+        <div className="flex flex-col lg:flex-row px-20 gap-20">
+          <div className="rounded-lg max-w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-2 lg:px-8">
             <Image
               src="/mentor-landing.svg"
               width={250}
@@ -76,7 +76,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-lg w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-8">
+          <div className="rounded-lg max-w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-8">
             <Image
               src="/project-landing.svg"
               width={200}
