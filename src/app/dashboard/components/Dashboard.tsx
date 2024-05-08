@@ -5,11 +5,11 @@ import Sidebar from "./Sidebar";
 
 export default function Dashboard() {
   return (
-    <div className="min-h-screen flex gap-4 lg:gap-16 text-primary">
+    <div className="min-h-screen flex gap-4 lg:gap-12 text-primary">
       <Sidebar active="dashboard" />
 
-      <div className="flex flex-col">
-        <div className="p-[5%] w-full flex flex-col gap-2">
+      <div className="flex flex-col w-4/5">
+        <div className="px-[5%] py-[2.5%] w-full flex flex-col gap-2 md:gap-4">
           <h1 className="text-2xl md:text-3xl font-semibold">
             Progress Belajar
           </h1>
@@ -17,7 +17,7 @@ export default function Dashboard() {
           <LevelBox level={1} remaining={3000} />
         </div>
 
-        <div className="p-[5%] w-full flex flex-col gap-2">
+        <div className="px-[5%] py-[2.5%] w-full flex flex-col gap-2 md:gap-4">
           <h1 className="text-2xl md:text-3xl font-semibold">
             Lanjutkan Belajar
           </h1>
@@ -31,7 +31,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <div className="p-[5%] w-full flex flex-col gap-2">
+        <div className="px-[5%] py-[2.5%] w-full flex flex-col gap-2 md:gap-4">
           <h1 className="text-2xl md:text-3xl font-semibold">
             Explore Proyek Terkini
           </h1>

@@ -43,11 +43,13 @@ const Project: React.FC<ProjectProps> = () => {
   const [completed, setCompleted] = useState(false);
 
   return (
-    <div className="min-h-screen flex gap-16 text-primary ">
+    <div className="min-h-screen flex gap-2 md:gap-16 text-primary ">
       <Sidebar active="projects" />
 
-      <div className="flex flex-col px-[5%] w-full md:w-3/5">
-        <div className={`w-full pt-[5%] mb-12 text-xl md:text-2xl flex gap-12`}>
+      <div className="flex flex-col px-[5%] w-full md:w-[70%]">
+        <div
+          className={`w-full pt-[5%] mb-4 font-bold md:mb-12 text-md md:text-2xl flex gap-4 md:gap-12`}
+        >
           <p
             className={`${
               completed ? "text-[#8C8C8C]" : "text-primary underline"
@@ -63,7 +65,7 @@ const Project: React.FC<ProjectProps> = () => {
             } cursor-pointer`}
             onClick={() => setCompleted(true)}
           >
-            Completed Project
+            Completed Projects
           </p>
         </div>
 

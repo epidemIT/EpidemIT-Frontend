@@ -24,14 +24,14 @@ export default function ProjectBoxDashboard({
         width={170}
         height={140}
         alt="Logo"
-        className="rounded-lg mb-2"
+        className="rounded-lg mb-2 w-20 h-20 md:w-40 md:h-40"
       />
 
       <div className="flex justify-between w-full md:w-4/5 items-center">
         <div>
-          <p className="text-xl font-semibold">{projectName}</p>
-          <p className="text-lg text-[#8C8C8C] mb-2">{company}</p>
-          <p className="text-[#8C8C8C] w-[90%] md:w-full">
+          <p className="text-lg md:text-xl font-semibold">{projectName}</p>
+          <p className="text-md md:text-lg text-[#8C8C8C] mb-2">{company}</p>
+          <p className="text-sm md:text-md text-[#8C8C8C] w-[90%] md:w-full">
             {description.length > 100
               ? `${description.substring(0, 100)}...`
               : description}
