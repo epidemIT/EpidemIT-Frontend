@@ -20,8 +20,8 @@ export default function ProjectDetails() {
           <p className="text-lg text-primary">Skills Acquired</p>
 
           <div className="flex flex-wrap gap-4">
-            <Skills skills="Software Engineering" />
-            <Skills skills="Web Dev" />
+            <Skills color="119ABE" skills="Software Engineering" />
+            <Skills color="119ABE" skills="Web Dev" />
           </div>
 
           <div className="text-black/60 flex items-center gap-4">
