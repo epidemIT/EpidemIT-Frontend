@@ -23,10 +23,21 @@ export default function Dashboard() {
           </h1>
 
           <ProjectBoxDashboard
-            imageUrl="/home-credit.png"
-            projectName="Project Name"
-            company="Company Name"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            project={{
+              id: "1",
+              image_url: "/home-credit.png",
+              name: "Project Name",
+              partner_name: "Company Name",
+              deadline: "Deadline",
+              users: ["Users"],
+              skills: ["Skills"],
+              created_at: "Date",
+              updated_at: "Date",
+              project_description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              partner_description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            }}
             progress={30}
           />
         </div>
@@ -37,10 +48,22 @@ export default function Dashboard() {
           </h1>
 
           <ProjectBoxDashboard
-            imageUrl="/home-credit.png"
-            projectName="Project Name"
-            company="Company Name"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            project={{
+              id: "1",
+              image_url: "/home-credit.png",
+              name: "Project Name",
+              partner_name: "Company Name",
+              deadline: "Deadline",
+              users: ["Users"],
+              skills: ["Skills"],
+              created_at: "Date",
+              updated_at: "Date",
+              project_description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              partner_description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            }}
+            progress={30}
           />
         </div>
       </div>

@@ -1,44 +1,28 @@
 "use client";
 import Sidebar from "./Sidebar";
 import Empty from "./Empty";
-import ProjectBoxDashboard, {
-  ProjectBoxDashboardProps,
-} from "./ProjectBoxDashboard";
+import ProjectBoxDashboard from "./ProjectBoxDashboard";
 import { useState } from "react";
 
-interface ProjectProps {}
+interface ProjectProps {
+  project: {
+    id: string;
+    name: string;
+    project_description: string;
+    deadline: string;
+    image_url: string;
+    partner_name: string;
+    partner_description: string;
+    users: string[];
+    skills: string[];
+    created_at: string;
+    updated_at: string;
+  };
+  progress: number;
+}
 
-const Project: React.FC<ProjectProps> = () => {
+const Project = ({ data }: { data: ProjectProps[] }) => {
   const empty = false;
-
-  const data: ProjectBoxDashboardProps[] = [
-    {
-      imageUrl: "/home-credit.png",
-      projectName: "Project Name",
-      company: "Company Name",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      progress: 30,
-    },
-
-    {
-      imageUrl: "/home-credit.png",
-      projectName: "Project Name",
-      company: "Company Name",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      progress: 50,
-    },
-
-    {
-      imageUrl: "/home-credit.png",
-      projectName: "Project Name",
-      company: "Company Name",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      progress: 70,
-    },
-  ];
 
   const [completed, setCompleted] = useState(false);
 
@@ -73,8 +57,12 @@ const Project: React.FC<ProjectProps> = () => {
           <Empty />
         ) : (
           <div className="flex flex-col gap-8">
-            {data.map((project: ProjectBoxDashboardProps, index: number) => (
-              <ProjectBoxDashboard key={index} {...project} />
+            {data.map((el, index: number) => (
+              <ProjectBoxDashboard
+                key={index}
+                project={el.project}
+                progress={el.progress}
+              />
             ))}
           </div>
         )}
