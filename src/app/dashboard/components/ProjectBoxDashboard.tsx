@@ -24,20 +24,20 @@ export default function ProjectBoxDashboard({
   progress: number;
 }) {
   return (
-    <div className="rounded-lg shadow-lg flex gap-8 p-5 w-full items-center">
+    <div className="rounded-lg shadow-lg md:flex gap-8 p-5 w-full items-center">
       <Image
         src={project?.image_url}
         width={170}
         height={140}
         alt="Logo"
-        className="rounded-lg"
+        className="rounded-lg mb-2"
       />
 
-      <div className="flex justify-between w-4/5 items-center">
+      <div className="flex justify-between w-full md:w-4/5 items-center">
         <div>
           <p className="text-xl font-semibold">{project?.name}</p>
-          <p className="text-lg text-[#8C8C8C]">{project?.partner_name}</p>
-          <p className="text-[#8C8C8C]">
+          <p className="text-lg text-[#8C8C8C] mb-2">{project?.partner_name}</p>
+          <p className="text-[#8C8C8C] w-[90%] md:w-full">
             {project?.partner_description?.length > 100
               ? `${project?.partner_description?.substring(0, 100)}...`
               : project?.partner_description}

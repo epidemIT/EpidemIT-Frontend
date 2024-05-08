@@ -13,7 +13,7 @@ interface SidebarProps {
 
 export default function Sidebar({ active }: SidebarProps) {
   return (
-    <div className="bg-primary min-h-screen w-[300px] text-white py-28 flex flex-col justify-between">
+    <div className="hidden md:flex bg-primary min-h-screen w-[300px] text-white py-28  flex-col justify-between">
       <div className="flex flex-col gap-16">
         <div className="flex flex-col items-center">
           <Image src="/logo-epidemit.svg" width={174} height={100} alt="Logo" />
