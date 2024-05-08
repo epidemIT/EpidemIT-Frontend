@@ -44,7 +44,7 @@ export default function Sidebar({ active }: SidebarProps) {
           </Link>
 
           <Link
-            href={"/dashboard/mentors"}
+            href={"/dashboard/mentor"}
             className={`flex flex-col md:flex-row ${
               active == "mentors" ? "bg-secondary text-primary" : "text-white"
             } items-center gap-2 hover:bg-secondary hover:text-primary text-sm md:text-lg cursor-pointer p-4 rounded-l-lg`}
