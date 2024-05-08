@@ -6,9 +6,10 @@ import MenuIcon from "./MenuIcon";
 
 interface NavbarProps {
   currentPage: string;
+  home?: boolean;
 }
 
-export default function Navbar({ currentPage }: NavbarProps) {
+export default function Navbar({ currentPage, home }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -32,8 +33,13 @@ export default function Navbar({ currentPage }: NavbarProps) {
     setMenuOpen(!menuOpen);
   };
 
+  console.log("home", home)
   return (
-    <nav className="bg-primary w-full py-4 px-8 flex items-center justify-between rounded-2xl">
+    <nav
+      className={`${
+        home ? "bg-transparent" : "bg-primary"
+      } w-full py-4 px-8 flex items-center justify-between rounded-2xl`}
+    >
       <Image src="/logo-epidemit.svg" width={150} height={50} alt="Logo" />
 
       <div className={menuOpen ? "block " : "hidden md:block"}>
@@ -49,7 +55,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
               currentPage == "Home"
                 ? "underline md:no-underline text-secondary-dark"
                 : "text-white"
-            }cursor-pointer`}
+            }cursor-pointer text-xl`}
           >
             Home
           </li>
@@ -58,7 +64,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
               currentPage == "Mentor"
                 ? "underline md:no-underline text-secondary-dark"
                 : "text-white"
-            }cursor-pointer`}
+            }cursor-pointer text-xl`}
           >
             Mentor
           </li>
@@ -67,18 +73,9 @@ export default function Navbar({ currentPage }: NavbarProps) {
               currentPage == "Project"
                 ? "underline md:no-underline text-secondary-dark"
                 : "text-white"
-            }cursor-pointer`}
+            }cursor-pointer text-xl`}
           >
             Project
-          </li>
-          <li
-            className={`${
-              currentPage == "Profile"
-                ? "underline md:no-underline text-secondary-dark"
-                : "text-white"
-            }cursor-pointer`}
-          >
-            Profile
           </li>
           <div className="text-black md:hidden flex justify-center">
             <ProfileBox name="John Doe" imgurl="/profile.jpg" />
