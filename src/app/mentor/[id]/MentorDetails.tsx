@@ -3,8 +3,7 @@ import Skills from "@/app/project/component/Skills";
 import Experience from "./Experience";
 import Review from "./Review";
 import MentorBox from "../component/MentorBox";
-import MentorModal from "@/app/dashboard/mentor/MentorModal";
-import toast from "react-hot-toast";
+import MentorModal from "../component/MentorModal";
 
 export default function MentorDetails() {
   return (

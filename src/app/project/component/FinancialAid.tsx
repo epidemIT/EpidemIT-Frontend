@@ -25,19 +25,23 @@ import {
 } from "@/components/ui/select";
 
 import { Textarea } from "@/components/ui/textarea";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { time } from "console";
 
 const FinancialAid = () => {
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+  const router = useRouter();
   return (
     <div>
       <Dialog>
         <DialogTrigger>
           <div
-            className="py-4 px-10 bg-[#2FBFA6] align-center justify-center rounded-[56px] text-white shadow-lg"
+            className="py-2 px-20 bg-white text-secondary-dark self-center w-full align-center justify-center rounded-[56px] shadow-lg"
             onClick={() => setModal1(true)}
           >
-            Daftar
+            Financial Aid
           </div>
         </DialogTrigger>
         <DialogContent
@@ -144,7 +148,7 @@ const FinancialAid = () => {
             </div>
             <div className="flex justify-center items-center">
               <div
-                className="flex justify-center items-center mt-5 text-white rounded-full w-[80%] py-3 bg-[#2FBFA6]"
+                className="flex cursor-pointer justify-center items-center mt-5 text-white rounded-full w-[80%] py-3 bg-[#2FBFA6]"
                 onClick={() => {
                   setModal1(false);
                   setModal2(true);
@@ -194,10 +198,16 @@ const FinancialAid = () => {
             </div>
             <div className="flex justify-center items-center">
               <div
-                className="flex justify-center items-center mt-5  rounded-full w-[80%] py-3 bg-[#2FBFA6]"
+                className="flex cursor-pointer justify-center items-center mt-5  rounded-full w-[80%] py-3 bg-[#2FBFA6]"
                 onClick={() => {
                   setModal1(false);
                   setModal2(true);
+                  toast.success(
+                    "Terimakasih telah mengisi form, ditunggu kabarnya di email"
+                  );
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 1000);
                 }}
               >
                 <p className="text-white">Submit</p>

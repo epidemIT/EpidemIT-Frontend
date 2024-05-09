@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Skills from "./Skills";
 import { MdOutlineGroup } from "react-icons/md";
+import FinancialAid from "./FinancialAid";
 
 export default function ProjectDetails() {
   const handleScroll = (id: string) => {
@@ -57,9 +58,7 @@ export default function ProjectDetails() {
             Daftar
           </button>
 
-          <button className="p-2 text-xl text-secondary-dark bg-white rounded-full">
-            Financial Aid
-          </button>
+          <FinancialAid />
 
           <button
             onClick={() => handleScroll("silabus")}
