@@ -37,8 +37,8 @@ query Materials($projectid: String){
           blurUpThumb
         }
       }
-      title
       materiKe
+      title
       image {
         responsiveImage {
           alt
@@ -56,11 +56,11 @@ query Materials($projectid: String){
       }
       video {
         height
+        url
         provider
         providerUid
         thumbnailUrl
         title
-        url
         width
       }
       projectid

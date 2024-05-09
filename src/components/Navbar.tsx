@@ -33,7 +33,6 @@ export default function Navbar({ currentPage, home }: NavbarProps) {
     setMenuOpen(!menuOpen);
   };
 
-  console.log("home", home)
   return (
     <nav
       className={`${
