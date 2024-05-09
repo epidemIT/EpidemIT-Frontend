@@ -80,7 +80,7 @@ export default function MentorDetails() {
 
           <div className="flex flex-col gap-8">
             <h1 className="text-2xl text-primary font-semibold">
-              Metode Belajar
+              Reviews
             </h1>
             <Review
               name="Ibnu"

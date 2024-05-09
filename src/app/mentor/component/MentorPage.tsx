@@ -73,7 +73,7 @@ export default function MentorPage() {
             href={"/dashboard/mentor"}
             className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold"
           >
-            My Scedhule
+            My Schedule
           </Link>
         </div>
 
@@ -81,7 +81,7 @@ export default function MentorPage() {
 
         <div className="flex lg:items-center gap-10 lg:flex-row flex-col justify-between">
           <h1 className="text-4xl font-semibold">
-            Find Projects Just For You!
+            Find Mentors Just For You!
           </h1>
 
           <div className="flex md:flex-row  lg:items-center gap-6">
@@ -89,7 +89,7 @@ export default function MentorPage() {
               <AiOutlineSearch className="text-4xl" />
               <input
                 type="text"
-                placeholder="Search Projects"
+                placeholder="Search Mentors"
                 className="w-full bg-transparent outline-none"
               />
               <button className="px-4 py-2 bg-secondary-dark rounded-full text-white font-semibold">

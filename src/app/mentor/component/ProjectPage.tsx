@@ -14,47 +14,47 @@ export default function ProjectPage() {
         "https://i.pinimg.com/564x/62/38/dc/6238dc40add8eae74709ca45e94e4cee.jpg",
       projectName: "Data Scientist - Beginner",
       projectCompany: "Tokopedia",
-      deadline: "15 Days",
+      deadline: "24 Hours",
       skills: ["AI/ML", "Sci-kit Learn", "SQL"],
     },
     {
       imageUrl:
         "https://i.pinimg.com/564x/49/a4/b3/49a4b376e8be067386d2b4c09a3537bc.jpg",
-      projectName: "Mobile App Development",
+      projectName: "Mobile App Development - Advanced",
       projectCompany: "Innovate Inc.",
-      deadline: "20 Days",
+      deadline: "104 Hours",
       skills: ["React Native", "Firebase"],
     },
     {
       imageUrl:
         "https://i.pinimg.com/564x/c8/14/3d/c8143d4f565efb867f6565eb6c690fb6.jpg",
-      projectName: "Data Analysis Dashboard",
+      projectName: "Data Analysis Dashboard - Beginner",
       projectCompany: "Data Insights",
-      deadline: "12 Days",
+      deadline: "16 Hours",
       skills: ["Python", "Pandas", "Matplotlib"],
     },
     {
       imageUrl:
         "https://i.pinimg.com/564x/ca/11/e0/ca11e0ef86216e8d6d56313d4297f95a.jpg",
-      projectName: "UI/UX Redesign",
+      projectName: "UI/UX Design - Intermediate",
       projectCompany: "Design Solutions",
-      deadline: "10 Days",
+      deadline: "56 Hours",
       skills: ["Adobe XD", "Figma", "Sketch"],
     },
     {
       imageUrl:
         "https://i.pinimg.com/564x/42/19/a0/4219a093885df7a73674f591f6681556.jpg",
-      projectName: "Blockchain Integration",
+      projectName: "Blockchain Integration - Beginner",
       projectCompany: "CryptoTech",
-      deadline: "25 Days",
+      deadline: "24 Hours",
       skills: ["Solidity", "Web3.js", "Ethereum"],
     },
     {
       imageUrl:
         "https://i.pinimg.com/564x/7c/b0/c1/7cb0c1392bccbc0538606b6653677193.jpg",
-      projectName: "AI Chatbot Development",
+      projectName: "AI Chatbot Development - Advanced",
       projectCompany: "Fuse",
-      deadline: "18 Days",
+      deadline: "112 Hours",
       skills: ["Python", "TensorFlow"],
     },
   ];
