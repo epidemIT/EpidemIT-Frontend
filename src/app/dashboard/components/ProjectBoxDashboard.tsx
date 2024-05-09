@@ -50,7 +50,7 @@ export default function ProjectBoxDashboard({
               ? `${project?.partner_description?.substring(0, 100)}...`
               : project?.partner_description}
           </p>
-          {progress ? (
+          {progress && project?.partner_name == "Tokopedia"  ? (
             <>
               <p className="font-semibold mt-4">Progress</p>
               <ProgressBar

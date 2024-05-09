@@ -36,7 +36,7 @@ export default function ProjectPromoBox({
         <h3 className="text-gray-500">{projectCompany}</h3>
 
         <p>
-          Deadline : <span className="font-semibold">{deadline}</span>
+          Total Jam Belajar : <span className="font-semibold">{deadline}</span>
         </p>
 
         <div className="flex w-full flex-wrap gap-2">

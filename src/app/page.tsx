@@ -55,7 +55,7 @@ export default function Home() {
             <br /> <br />
             With our project-based learning feature, users dive into real-world
             scenarios, developing practical skills and problem-solving abilities
-            essential in today's tech landscape. Additionally, our mentorship
+            essential in today`&apos;`s tech landscape. Additionally, our mentorship
             program connects learners with industry experts, providing valuable
             insights and guidance along their educational journey.
             <br /> <br />

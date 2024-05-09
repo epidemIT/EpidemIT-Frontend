@@ -38,10 +38,10 @@ export default function MentorDetails() {
         <h1 className="font-semibold text-2xl">Overview</h1>
 
         <p className="text-lg">
-          With 15+ years of HR and Organizational Development experience, I'm
+          With 15+ years of HR and Organizational Development experience, I`&apos;`m
           dedicated to shaping organizations through mentorship. Armed with a
-          Bachelor's in Computer Science, a Master's in HR, and SHRM-SCP
-          certification, I offer practical insights. I've worked with diverse
+          Bachelor`&apos;`s in Computer Science, a Master`&apos;`s in HR, and SHRM-SCP
+          certification, I offer practical insights. I`&apos;`ve worked with diverse
           organizations, from startups to industry leaders, spanning e-Commerce,
           finance, education, and HR consulting.
         </p>
@@ -80,7 +80,7 @@ export default function MentorDetails() {
 
           <div className="flex flex-col gap-8">
             <h1 className="text-2xl text-primary font-semibold">
-              Metode Belajar
+              Reviews
             </h1>
             <Review
               name="Ibnu"
