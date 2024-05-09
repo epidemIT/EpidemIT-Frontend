@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 import Image from "next/image";
-
+import Cookies from "universal-cookie";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 import {
@@ -25,6 +25,7 @@ const MentorModal = () => {
   const [modal2, setModal2] = useState(false);
   const [selected, setSelected] = useState(false);
   const router = useRouter();
+  const cookie = new Cookies();
 
   return (
     <div>
@@ -192,8 +193,10 @@ const MentorModal = () => {
                 onClick={() => {
                   setModal1(false);
                   setModal2(true);
-                  toast.success("Booking Success");
-                  router.push("/dashboard/mentor");
+                  if (cookie.get("token") === undefined) {
+                    toast.error("Please Login First");
+                    router.push("/login");
+                  } else router.push("/dashboard/mentor");
                 }}
               >
                 <p className="text-white">
