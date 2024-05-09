@@ -186,13 +186,16 @@ const ProjectModal = () => {
             </div>
             <div className="flex justify-center items-center">
               <div
-                className="flex justify-center items-center mt-5 text-white rounded-full w-[80%] py-3 bg-[#2FBFA6]"
+                className="flex justify-center items-center mt-5  rounded-full w-[80%] py-3 bg-[#2FBFA6]"
                 onClick={() => {
                   setModal1(false);
                   setModal2(true);
                 }}
               >
-                Continue
+                <p className="text-white">
+                  Book Session for{" "}
+                  <span className="font-bold text-md"> 09 May 2024</span>
+                </p>
               </div>
             </div>
           </div>
