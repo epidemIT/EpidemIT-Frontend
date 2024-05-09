@@ -168,7 +168,7 @@ const MentorModal = () => {
                     <SelectGroup>
                       <SelectLabel>Main Topic</SelectLabel>
                       <SelectItem value="data">Data</SelectItem>
-                      <SelectItem value="code">COde</SelectItem>
+                      <SelectItem value="code">Code</SelectItem>
                       <SelectItem value="oop">OOP</SelectItem>
                       <SelectItem value="design">Design</SelectItem>
                       <SelectItem value="web">Web</SelectItem>

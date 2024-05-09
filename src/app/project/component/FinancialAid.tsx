@@ -26,13 +26,11 @@ import {
 
 import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { time } from "console";
 
 const FinancialAid = () => {
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
-  const router = useRouter();
+
   return (
     <div>
       <Dialog>
@@ -133,16 +131,16 @@ const FinancialAid = () => {
                 </p>
                 <div className="border-[1px] px-4 py-4 mx-4 w-[300px] rounded-lg">
                   <Image
-                    src="/niggs.svg"
-                    alt="nigs"
+                    src="https://i.pinimg.com/564x/62/38/dc/6238dc40add8eae74709ca45e94e4cee.jpg"
+                    alt="tokped"
                     width={200}
                     height={250}
-                    className="rounded-lg h-[200px] w-[250px]"
+                    className="rounded-lg h-[275px] w-[250px]"
                   />
                   <h2 className="text-xl font-semibold mx-3 mt-2">
-                    Home Credit
+                    Data Scientist - Beginner
                   </h2>
-                  <p className="text-md text-[#2A638B] mx-3">Kredivo</p>
+                  <p className="text-md text-[#2A638B] mx-3">Tokopedia</p>
                 </div>
               </div>
             </div>
@@ -203,7 +201,7 @@ const FinancialAid = () => {
                   setModal1(false);
                   setModal2(true);
                   toast.success(
-                    "Terimakasih telah mengisi form, ditunggu kabarnya di email"
+                    "Terima kasih telah mengisi form, ditunggu kabarnya di email"
                   );
                   setTimeout(() => {
                     window.location.reload();

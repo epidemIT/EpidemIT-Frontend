@@ -59,10 +59,10 @@ const Project = ({ data }: { data: ProjectProps[] }) => {
         ) : (
           <div className="flex flex-col gap-8">
             {data.map((el, index: number) => (
-              <Link key={index} href={`/dashboard/projects/${el.project.id}`}>
+              <Link key={index} href={`/dashboard/project/${el.project.id}`}>
                 <ProjectBoxDashboard
                   project={el.project}
-                  progress={el.progress}
+                  progress={el.progress*100}
                 />
               </Link>
             ))}

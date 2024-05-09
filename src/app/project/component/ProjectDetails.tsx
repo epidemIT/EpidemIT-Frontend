@@ -23,9 +23,9 @@ export default function ProjectDetails() {
 
           <div className="text-center">
             <h1 className="font-semibold text-2xl">
-              Machine Learning Predicitions
+            Data Scientist - Beginner
             </h1>
-            <p className="text-gray-500">Home Credit</p>
+            <p className="text-gray-500">Tokopedia</p>
           </div>
         </div>
 
@@ -34,14 +34,15 @@ export default function ProjectDetails() {
           <p className="text-lg text-primary">Skills Acquired</p>
 
           <div className="flex flex-wrap gap-4">
-            <Skills color="119ABE" skills="Software Engineering" />
-            <Skills color="119ABE" skills="Web Dev" />
+            <Skills color="119ABE" skills="AI/ML" />
+            <Skills color="119ABE" skills="Sci-kit Learn" />
+            <Skills color="119ABE" skills="SQL" />
           </div>
 
           <div className="text-black/60 flex items-center gap-4">
             <MdOutlineGroup className="text-2xl" />
 
-            <p>50.0000 peserta Talent Mendaftar</p>
+            <p>2.763 Talent telah Mendaftar</p>
           </div>
 
           <p className="text-xl">
