@@ -23,7 +23,8 @@ import toast from "react-hot-toast";
 const MentorModal = () => {
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState<number>();
+  const [date, setDate] = useState<number>();
   const router = useRouter();
 
   return (
@@ -54,31 +55,66 @@ const MentorModal = () => {
               <span className="font-bold text-lg">Auvarifqi Putra</span>
             </h2>
             <div className="grid grid-cols-3 md:flex gap-5 mt-4 items-center justify-center">
-              <div className="flex flex-col justify-between items-center px-8 py-5 border-[1px] border-[#8C8C8C] rounded-[10px]">
+              <div
+                className={`flex flex-col justify-between items-center px-8 py-5 ${
+                  date === 8
+                    ? `border-[2px] border-black`
+                    : `border-[1px] border-[#8C8C8C]`
+                } rounded-[10px]`}
+                onClick={() => setDate(8)}
+              >
                 <p className="text-md text-[#8C8C8C] font-medium">Wed</p>
                 <h1 className="text-black font-bold text-[40px]">08</h1>
                 <h1 className="text-black font-bold text-[20px]">May</h1>
                 <p className="text-md text-[#26B43C]">10 slots</p>
               </div>
-              <div className="flex flex-col justify-between items-center px-8 py-5 border-[2px] border-black rounded-[10px]">
+              <div
+                className={`flex flex-col justify-between items-center px-8 py-5 ${
+                  date === 9
+                    ? `border-[2px] border-black`
+                    : `border-[1px] border-[#8C8C8C]`
+                } rounded-[10px]`}
+                onClick={() => setDate(9)}
+              >
                 <p className="text-md text-[#8C8C8C] font-medium">Thu</p>
                 <h1 className="text-black font-bold text-[40px]">09</h1>
                 <h1 className="text-black font-bold text-[20px]">May</h1>
                 <p className="text-md text-[#26B43C]">10 slots</p>
               </div>
-              <div className="flex flex-col justify-between items-center px-8 py-5 border-[1px] border-[#8C8C8C] rounded-[10px]">
+              <div
+                className={`flex flex-col justify-between items-center px-8 py-5 ${
+                  date === 10
+                    ? `border-[2px] border-black`
+                    : `border-[1px] border-[#8C8C8C]`
+                } rounded-[10px]`}
+                onClick={() => setDate(10)}
+              >
                 <p className="text-md text-[#8C8C8C] font-medium">Fri</p>
                 <h1 className="text-black font-bold text-[40px]">10</h1>
                 <h1 className="text-black font-bold text-[20px]">May</h1>
                 <p className="text-md text-[#26B43C]">10 slots</p>
               </div>
-              <div className="flex flex-col justify-between items-center px-8 py-5 border-[1px] border-[#8C8C8C] rounded-[10px]">
+              <div
+                className={`flex flex-col justify-between items-center px-8 py-5 ${
+                  date === 11
+                    ? `border-[2px] border-black`
+                    : `border-[1px] border-[#8C8C8C]`
+                } rounded-[10px]`}
+                onClick={() => setDate(11)}
+              >
                 <p className="text-md text-[#8C8C8C] font-medium">Sat</p>
                 <h1 className="text-black font-bold text-[40px]">11</h1>
                 <h1 className="text-black font-bold text-[20px]">May</h1>
                 <p className="text-md text-[#26B43C]">10 slots</p>
               </div>
-              <div className="flex flex-col justify-between items-center px-6 py-5 border-[1px] border-[#8C8C8C] rounded-[10px]">
+              <div
+                className={`flex flex-col justify-between items-center px-8 py-5 ${
+                  date === 12
+                    ? `border-[2px] border-black`
+                    : `border-[1px] border-[#8C8C8C]`
+                } rounded-[10px]`}
+                onClick={() => setDate(12)}
+              >
                 <p className="text-md text-[#8C8C8C] font-medium">Sun</p>
                 <h1 className="text-black font-bold text-[40px]">12</h1>
                 <h1 className="text-black font-bold text-[20px]">May</h1>
@@ -91,24 +127,50 @@ const MentorModal = () => {
             </p>
             <div className="grid grid-cols-4 mt-4 gap-5">
               <p
-                onClick={() => setSelected(!selected)}
+                onClick={() => setSelected(830)}
                 className={`${
-                  selected ? "bg-secondary-dark text-white" : "bg-white"
+                  selected === 830 ? "bg-secondary-dark text-white" : "bg-white"
                 } flex py-2 border-[1px] cursor-pointer border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]`}
               >
                 08.30
               </p>
-              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p
+                onClick={() => setSelected(930)}
+                className={`${
+                  selected === 930 ? "bg-secondary-dark text-white" : "bg-white"
+                } flex py-2 border-[1px] cursor-pointer border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]`}
+              >
                 09.30
               </p>
-              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p
+                onClick={() => setSelected(1030)}
+                className={`${
+                  selected === 1030
+                    ? "bg-secondary-dark text-white"
+                    : "bg-white"
+                } flex py-2 border-[1px] cursor-pointer border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]`}
+              >
                 10.30
               </p>
-              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p
+                onClick={() => setSelected(1130)}
+                className={`${
+                  selected === 1130
+                    ? "bg-secondary-dark text-white"
+                    : "bg-white"
+                } flex py-2 border-[1px] cursor-pointer border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]`}
+              >
                 11.30
               </p>
-              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
-                08.30
+              <p
+                onClick={() => setSelected(1230)}
+                className={`${
+                  selected === 1230
+                    ? "bg-secondary-dark text-white"
+                    : "bg-white"
+                } flex py-2 border-[1px] cursor-pointer border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]`}
+              >
+                12.30
               </p>
             </div>
             <div className="flex justify-center items-center">
@@ -198,7 +260,7 @@ const MentorModal = () => {
               >
                 <p className="text-white">
                   Book Session for{" "}
-                  <span className="font-bold text-md"> 09 May 2024</span>
+                  <span className="font-bold text-md"> {date} May 2024</span>
                 </p>
               </div>
             </div>
