@@ -12,10 +12,10 @@ export default function ProjectPage() {
     {
       imageUrl:
         "https://i.pinimg.com/564x/62/38/dc/6238dc40add8eae74709ca45e94e4cee.jpg",
-      projectName: "Machine Learning Predictions",
+      projectName: "Data Scientist - Beginner",
       projectCompany: "Tokopedia",
       deadline: "15 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      skills: ["AI/ML", "Sci-kit Learn", "SQL"],
     },
     {
       imageUrl:

@@ -9,6 +9,7 @@ import {
   StructuredText,
   VideoPlayer,
 } from "react-datocms";
+import toast from "react-hot-toast";
 
 const fixedContentForTTS = [
   {
@@ -44,6 +45,7 @@ export default function ProjectContent({
   const [summarizedText, setSummarizedText] = useState<string>("");
 
   const handleGetAudio = async (text: string) => {
+    const toastId = toast.loading("Generating audio...");
     try {
       const response = await fetch("http://localhost:3001/api/generate-voice", {
         method: "POST",
@@ -57,6 +59,11 @@ export default function ProjectContent({
 
       if (!response.ok) {
         throw new Error("Failed to fetch audio data");
+      } else {
+        toast.dismiss(toastId);
+        toast.success("Audio generated successfully. Playing audio...", {
+          duration: 5000,
+        });
       }
 
       const data = await response.arrayBuffer();
@@ -71,6 +78,7 @@ export default function ProjectContent({
   };
 
   const handleSummarize = async (text: string) => {
+    const toastId = toast.loading("Summarizing text...");
     try {
       const response = await fetch("http://localhost:3001/api/summary", {
         method: "POST",
@@ -84,6 +92,11 @@ export default function ProjectContent({
 
       if (!response.ok) {
         throw new Error("Failed to fetch summarized data");
+      } else {
+        toast.dismiss(toastId);
+        toast.success("Text summarized successfully.", {
+          duration: 5000,
+        });
       }
 
       const data = await response.json();
@@ -121,9 +134,10 @@ export default function ProjectContent({
                 onClick={() => {
                   setCurrentMateriKe(index + 1);
                   setCurrentMateri(material);
+                  setSummarizedText("");
                 }}
               >
-                <p>Materi {index + 1}</p>
+                {index < 2 ? <p>Materi {index + 1}</p> : <p>Final Project</p>}
               </div>
             ))}
           </div>

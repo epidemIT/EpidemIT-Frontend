@@ -40,7 +40,9 @@ export default function Navbar({ currentPage, home }: NavbarProps) {
         home ? "bg-transparent" : "bg-primary"
       } w-full py-4 px-8 flex items-center justify-between rounded-2xl`}
     >
-      <Image src="/logo-epidemit.svg" width={150} height={50} alt="Logo" />
+      <Link href={"/"} className="cursor-pointer">
+        <Image src="/logo-epidemit.svg" width={150} height={50} alt="Logo" />
+      </Link>
 
       <div className={menuOpen ? "block " : "hidden md:block"}>
         <ul
