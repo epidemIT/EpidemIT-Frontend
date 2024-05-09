@@ -1,5 +1,7 @@
 import ProjectContent from "../../components/ProjectContent";
 import { performRequest } from "../../../../../lib/datocms";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const PAGE_CONTENT_QUERY = `
 query Materials($projectid: String){
@@ -73,17 +75,19 @@ query Materials($projectid: String){
 
 // get project id from url
 export default async function Page({ params }: { params: { id: string } }) {
+  const cookie = cookies();
+  const token = cookie.get("token");
+
+  if (!token) {
+    redirect("/login");
+  }
+
   const data = await performRequest({
     query: PAGE_CONTENT_QUERY,
     variables: { projectid: params.id },
   });
 
   const { allMaterials } = data.data;
-
-  const token = {
-    value:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrdWNsYXJpc3NhYWt1YWRhbGFodGFsZW50QGdtYWlsLmNvbSIsImV4cCI6MTcxNTM5NTM4M30.YBvhBTUiRHN9urDEjzpjQUcJPxBSAcBzsZhH__q5NJE",
-  };
 
   const res1 = await fetch(
     process.env.NEXT_PUBLIC_BACKEND_URL + `/api/v1/projects/${params.id}`,
