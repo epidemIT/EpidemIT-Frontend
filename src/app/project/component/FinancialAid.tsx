@@ -36,7 +36,7 @@ const FinancialAid = () => {
       <Dialog>
         <DialogTrigger>
           <div
-            className="py-2 px-20 bg-white text-secondary-dark self-center w-full align-center justify-center rounded-[56px] shadow-lg"
+            className="p-2 text-xl bg-white text-secondary-dark rounded-full"
             onClick={() => setModal1(true)}
           >
             Financial Aid
