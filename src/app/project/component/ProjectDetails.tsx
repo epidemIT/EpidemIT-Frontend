@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
 import Skills from "./Skills";
 import { MdOutlineGroup } from "react-icons/md";
 
 export default function ProjectDetails() {
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="mt-12 flex flex-col md:items-center">
       <div className="flex md:flex-row flex-col justify-around gap-12">
@@ -43,10 +49,13 @@ export default function ProjectDetails() {
           </button>
 
           <button className="p-2 text-xl text-secondary-dark bg-white rounded-full">
-            Deskripsi
+            Financial Aid
           </button>
 
-          <button className="p-2 text-xl text-secondary-dark bg-white rounded-full">
+          <button
+            onClick={() => handleScroll("silabus")}
+            className="p-2 text-xl text-secondary-dark bg-white rounded-full"
+          >
             Silabus
           </button>
         </div>
@@ -93,7 +102,7 @@ export default function ProjectDetails() {
         </div>
       </div>
 
-      <div className="mt-20 md:flex flex-col gap-4 md:w-1/2">
+      <div className="mt-20 md:flex flex-col gap-4 md:w-1/2" id="silabus">
         <h1 className="text-2xl text-primary font-semibold md:text-center">
           Silabus
         </h1>

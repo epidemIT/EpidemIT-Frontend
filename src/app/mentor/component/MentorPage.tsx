@@ -5,6 +5,7 @@ import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
 import Footer from "@/components/Footer";
 import MentorBox from "./MentorBox";
+import Link from "next/link";
 
 export default function MentorPage() {
   const data = [
@@ -64,9 +65,11 @@ export default function MentorPage() {
             </p>
           </div>
 
-          <button className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold">
+          <Link
+          href={"/dashboard/mentor"}
+          className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold">
             My Scedhule
-          </button>
+          </Link>
         </div>
 
         {/* search & filter area */}

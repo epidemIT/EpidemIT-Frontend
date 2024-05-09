@@ -1,9 +1,20 @@
+"use client";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const handleScroll = (id: string) => {
+    const target = document.getElementById(id);
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="">
       <section className="bg-[url('/home-hero.svg')] min-h-screen bg-no-repeat bg-cover py-8">
@@ -14,13 +25,18 @@ export default function Home() {
         <div className="flex pb-20 h-[1000px] lg:h-full gap-28 px-[5%] mt-8 flex-col justify-between lg:items-center xl:flex-row lg:justify-center">
           <Image src="/laptop-hero.svg" width={570} height={50} alt="Logo" />
           <div className="flex flex-col items-start lg:justify-center gap-4 lg:w-1/4">
-            <h1 className={`text-primary lg:text-white text-6xl md:text-8xl font-bold`}>
+            <h1
+              className={`text-primary lg:text-white text-6xl md:text-8xl font-bold`}
+            >
               EpidemIT
             </h1>
             <p className="text-secondary-dark lg:text-[#C3FFE3] md:text-2xl text-2xl">
               Where IT expertise spreads like wildfire, for everyone
             </p>
-            <button className="bg-secondary-dark text-white px-12 shadow-2xl text-xl py-2 rounded-full">
+            <button
+              onClick={() => handleScroll("features")}
+              className="bg-secondary-dark text-white px-12 shadow-2xl text-xl py-2 rounded-full"
+            >
               Start Now {" >"}
             </button>
           </div>
@@ -50,7 +66,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="items-center flex flex-col gap-8 py-28">
+      <section className="items-center flex flex-col gap-8 py-28" id="features">
         <h1 className="font-semibold text-4xl">Features</h1>
         <div className="flex flex-col lg:flex-row px-20 gap-20">
           <div className="rounded-lg max-w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-2 lg:px-8">
@@ -69,7 +85,7 @@ export default function Home() {
 
               <Link
                 href="/mentor"
-                className="border-2 text-secondary-dark hover:text-white hover:bg-secondary-dark border-secondary-dark rounded-full py-2 px-4"
+                className="border-2 text-secondary-dark hover:text-white hover:bg-secondary-dark border-secondary-dark rounded-full text-lg py-2 px-4"
               >
                 Explore {" >"}
               </Link>
@@ -91,8 +107,8 @@ export default function Home() {
               </p>
 
               <Link
-                href="/mentor"
-                className="border-2 text-secondary-dark hover:text-white hover:bg-secondary-dark border-secondary-dark rounded-full py-2 px-4"
+                href="/project"
+                className="border-2 text-secondary-dark hover:text-white hover:bg-secondary-dark border-secondary-dark rounded-full text-lg py-2 px-4"
               >
                 Explore {" >"}
               </Link>
