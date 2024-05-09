@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import ToasterContext from "@/components/ToasterContext";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -21,7 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/logo-gambar.png" />
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <ToasterContext />
+        {children}
+      </body>
     </html>
   );
 }

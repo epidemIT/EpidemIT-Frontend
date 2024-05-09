@@ -1,17 +1,10 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 import Image from "next/image";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 import {
   Select,
@@ -24,10 +17,14 @@ import {
 } from "@/components/ui/select";
 
 import { Textarea } from "@/components/ui/textarea";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const MentorModal = () => {
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+  const [selected, setSelected] = useState(false);
+  const router = useRouter();
 
   return (
     <div>
@@ -54,7 +51,7 @@ const MentorModal = () => {
             </h2>
             <h2 className="text-lg text-[#2A638B] mt-2 font-medium">
               Book 1 on 1 mentoring session with{" "}
-              <span className="font-bold text-lg">Asep Berlian</span>
+              <span className="font-bold text-lg">Auvarifqi Putra</span>
             </h2>
             <div className="grid grid-cols-3 md:flex gap-5 mt-4 items-center justify-center">
               <div className="flex flex-col justify-between items-center px-8 py-5 border-[1px] border-[#8C8C8C] rounded-[10px]">
@@ -93,7 +90,12 @@ const MentorModal = () => {
               Available Time Slots
             </p>
             <div className="grid grid-cols-4 mt-4 gap-5">
-              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p
+                onClick={() => setSelected(!selected)}
+                className={`${
+                  selected ? "bg-secondary-dark text-white" : "bg-white"
+                } flex py-2 border-[1px] cursor-pointer border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]`}
+              >
                 08.30
               </p>
               <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
@@ -111,7 +113,7 @@ const MentorModal = () => {
             </div>
             <div className="flex justify-center items-center">
               <div
-                className="flex justify-center items-center mt-5 text-white rounded-full w-[80%] py-3 bg-[#2FBFA6]"
+                className="flex cursor-pointer justify-center items-center mt-5 text-white rounded-full w-[80%] py-3 bg-[#2FBFA6]"
                 onClick={() => {
                   setModal1(false);
                   setModal2(true);
@@ -130,7 +132,7 @@ const MentorModal = () => {
             <div className="grid grid-cols-1 gap-4 md:flex items-center justify-between">
               <div className="flex items-center gap-4 mt-4">
                 <Image
-                  src={"/gibs.jpeg"}
+                  src={"/bewok.jpeg"}
                   alt="Profile"
                   width={150}
                   height={150}
@@ -139,7 +141,7 @@ const MentorModal = () => {
                 <div>
                   <h2 className="text-xl font-semibold ">Asep Berlian</h2>
                   <p className="font-medium text-[#2A638B] text-lg">
-                    Software Engineer at Mostrans
+                    Data Scientist at Kalbe
                   </p>
                 </div>
               </div>
@@ -147,7 +149,7 @@ const MentorModal = () => {
               <div className="flex justify-between items-center gap-10 px-4 py-4 border-[3px] shadow-md border-[#F1F1F1] rounded-lg h-fit">
                 <div>
                   <p className="text-xl font-bold">09 May 2024</p>
-                  <p className="text-lg font-medium text-[#8C8C8C]">12:30</p>
+                  <p className="text-lg font-medium text-[#8C8C8C]">8:30</p>
                 </div>
                 <p className="text-[#2FBFA6]">Change</p>
               </div>
@@ -164,7 +166,7 @@ const MentorModal = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectLabel>Main TOpic</SelectLabel>
+                      <SelectLabel>Main Topic</SelectLabel>
                       <SelectItem value="data">Data</SelectItem>
                       <SelectItem value="code">COde</SelectItem>
                       <SelectItem value="oop">OOP</SelectItem>
@@ -186,10 +188,12 @@ const MentorModal = () => {
             </div>
             <div className="flex justify-center items-center">
               <div
-                className="flex justify-center items-center mt-5  rounded-full w-[80%] py-3 bg-[#2FBFA6]"
+                className="flex cursor-pointer justify-center items-center mt-5  rounded-full w-[80%] py-3 bg-[#2FBFA6]"
                 onClick={() => {
                   setModal1(false);
                   setModal2(true);
+                  toast.success("Booking Success");
+                  router.push("/dashboard/mentor");
                 }}
               >
                 <p className="text-white">

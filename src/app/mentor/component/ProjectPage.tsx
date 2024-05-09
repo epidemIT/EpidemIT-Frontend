@@ -10,44 +10,50 @@ import Link from "next/link";
 export default function ProjectPage() {
   const data = [
     {
-      imageUrl: "/home-credit.png",
-      projectName: "E-commerce Website",
-      projectCompany: "Tech Corp",
+      imageUrl:
+        "https://i.pinimg.com/564x/62/38/dc/6238dc40add8eae74709ca45e94e4cee.jpg",
+      projectName: "Machine Learning Predictions",
+      projectCompany: "Tokopedia",
       deadline: "15 Days",
       skills: ["React", "NodeJS", "MongoDB"],
     },
     {
-      imageUrl: "/home-credit.png",
+      imageUrl:
+        "https://i.pinimg.com/564x/49/a4/b3/49a4b376e8be067386d2b4c09a3537bc.jpg",
       projectName: "Mobile App Development",
       projectCompany: "Innovate Inc.",
       deadline: "20 Days",
       skills: ["React Native", "Firebase"],
     },
     {
-      imageUrl: "/home-credit.png",
+      imageUrl:
+        "https://i.pinimg.com/564x/c8/14/3d/c8143d4f565efb867f6565eb6c690fb6.jpg",
       projectName: "Data Analysis Dashboard",
       projectCompany: "Data Insights",
       deadline: "12 Days",
       skills: ["Python", "Pandas", "Matplotlib"],
     },
     {
-      imageUrl: "/home-credit.png",
+      imageUrl:
+        "https://i.pinimg.com/564x/ca/11/e0/ca11e0ef86216e8d6d56313d4297f95a.jpg",
       projectName: "UI/UX Redesign",
       projectCompany: "Design Solutions",
       deadline: "10 Days",
       skills: ["Adobe XD", "Figma", "Sketch"],
     },
     {
-      imageUrl: "/home-credit.png",
+      imageUrl:
+        "https://i.pinimg.com/564x/42/19/a0/4219a093885df7a73674f591f6681556.jpg",
       projectName: "Blockchain Integration",
       projectCompany: "CryptoTech",
       deadline: "25 Days",
       skills: ["Solidity", "Web3.js", "Ethereum"],
     },
     {
-      imageUrl: "/home-credit.png",
+      imageUrl:
+        "https://i.pinimg.com/564x/7c/b0/c1/7cb0c1392bccbc0538606b6653677193.jpg",
       projectName: "AI Chatbot Development",
-      projectCompany: "Smart Solutions",
+      projectCompany: "Fuse",
       deadline: "18 Days",
       skills: ["Python", "TensorFlow"],
     },
