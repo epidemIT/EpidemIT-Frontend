@@ -3,6 +3,7 @@ import Skills from "@/app/project/component/Skills";
 import Experience from "./Experience";
 import Review from "./Review";
 import MentorBox from "../component/MentorBox";
+import MentorModal from "../component/MentorModal";
 
 export default function MentorDetails() {
   return (
@@ -11,7 +12,7 @@ export default function MentorDetails() {
         <div className="w-1/2">
           <div className="w-56 aspect-square bg-slate-300 rounded-full relative overflow-hidden">
             <Image
-              src={"/niggs.svg"}
+              src={"/bewok.jpeg"}
               fill={true}
               alt="profile"
               className="object-cover w-full h-full"
@@ -24,14 +25,12 @@ export default function MentorDetails() {
             Auvarifqi Putra Diandra
           </h1>
           <p className="text-2xl text-[#2A638B] font-semibold">
-            Data Scientist at Mostrans
+            Data Scientist at Kalbe
           </p>
         </div>
 
         <div className="md:w-4/5 flex flex-col justify-end items-end gap-4 p-4 rounded-lg">
-          <button className="py-2 px-6 text-xl text-white bg-secondary-dark rounded-full w-fit">
-            Book Session
-          </button>
+          <MentorModal />
         </div>
       </div>
 
@@ -103,9 +102,9 @@ export default function MentorDetails() {
 
         <div className="flex flex-wrap gap-12 justify-center w-full">
           <MentorBox
-            name="Auvarifqi Putra Diandra"
-            title="Data Scientist at Mostrans"
-            imageUrl="/bewok.jpeg"
+            name="Syahrial Alzaidan"
+            title="Software Engineer at Meta"
+            imageUrl="/niggs.svg"
             reviews={5}
             sessions={4.5}
           />

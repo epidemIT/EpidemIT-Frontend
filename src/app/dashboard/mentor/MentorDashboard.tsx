@@ -68,23 +68,9 @@ export default function MentorDashboard() {
         ) : (
           <div className="flex flex-col gap-12">
             <MentorBoxDashboard
-              imageUrl="/niggs.svg"
-              date="Thu, 25 Apr"
-              time="06.00 - 08.00"
-              mentorName="Auvarifqi Putra"
-            />
-
-            <MentorBoxDashboard
-              imageUrl="/niggs.svg"
-              date="Thu, 25 Apr"
-              time="06.00 - 08.00"
-              mentorName="Auvarifqi Putra"
-            />
-
-            <MentorBoxDashboard
-              imageUrl="/niggs.svg"
-              date="Thu, 25 Apr"
-              time="06.00 - 08.00"
+              imageUrl="/bewok.jpeg"
+              date="Thu, 09 May"
+              time="08.30 - 11.00"
               mentorName="Auvarifqi Putra"
             />
           </div>

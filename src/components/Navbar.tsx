@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import ProfileBox from "./ProfileBox";
 import MenuIcon from "./MenuIcon";
+import Link from "next/link";
 
 interface NavbarProps {
   currentPage: string;
@@ -49,7 +50,8 @@ export default function Navbar({ currentPage, home }: NavbarProps) {
               : "flex gap-8 text-white text-lg"
           }
         >
-          <li
+          <Link
+            href={"/"}
             className={`${
               currentPage == "Home"
                 ? "underline md:no-underline text-secondary-dark"
@@ -57,8 +59,9 @@ export default function Navbar({ currentPage, home }: NavbarProps) {
             }cursor-pointer text-xl`}
           >
             Home
-          </li>
-          <li
+          </Link>
+          <Link
+            href={"/mentor"}
             className={`${
               currentPage == "Mentor"
                 ? "underline md:no-underline text-secondary-dark"
@@ -66,8 +69,9 @@ export default function Navbar({ currentPage, home }: NavbarProps) {
             }cursor-pointer text-xl`}
           >
             Mentor
-          </li>
-          <li
+          </Link>
+          <Link
+            href={"/project"}
             className={`${
               currentPage == "Project"
                 ? "underline md:no-underline text-secondary-dark"
@@ -75,7 +79,7 @@ export default function Navbar({ currentPage, home }: NavbarProps) {
             }cursor-pointer text-xl`}
           >
             Project
-          </li>
+          </Link>
           <div className="text-black md:hidden flex justify-center">
             <ProfileBox name="John Doe" imgurl="/profile.jpg" />
           </div>

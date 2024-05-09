@@ -39,7 +39,7 @@ const ProfileDropdown = ({
           </Link>
         ))}
         <button
-          className="w-full select-none rounded-md font-semibold py-1 mt-4 text-[0.875rem] transition hover:text-white hover:bg-red-500"
+          className="w-full select-none rounded-md font-semibold py-1 mt-4 text-[0.875rem] transition bg-red-500 text-white hover:brightness-110"
           onClick={() => {}}
         >
           Logout

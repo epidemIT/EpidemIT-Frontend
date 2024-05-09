@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MdOutlineDateRange, MdOutlineTimer } from "react-icons/md";
 
 interface MentorBoxDashboardProps {
@@ -15,8 +16,10 @@ export default function MentorBoxDashboard({
   time,
 }: MentorBoxDashboardProps) {
   return (
-    <div className="p-2 flex gap-20 shadow-xl">
-      <Image src={imageUrl} width={200} height={100} alt="Mentor" />
+    <div className="p-2 flex flex-col xl:flex-row gap-2 xl:gap-20 shadow-xl">
+      <div className="flex justify-center">
+        <Image src={imageUrl} width={200} height={100} alt="Mentor" />
+      </div>
       <div className="flex flex-col py-8 justify-between">
         <h1 className="text-2xl">
           Mentorship Session with <strong>{mentorName}</strong>
@@ -35,12 +38,16 @@ export default function MentorBoxDashboard({
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 justify-center">
-        <button className="bg-secondary-dark text-white py-2 px-4 rounded-full">
+      <div className="flex flex-col items-center  gap-4 justify-center">
+        <Link
+          href={"http://bit.ly/kosAupa"}
+          target="_blank"
+          className="bg-secondary-dark w-32 text-center text-white py-2 px-4 rounded-full"
+        >
           Join Meeting
-        </button>
+        </Link>
 
-        <button className="bg-white text-secondary-dark border border-secondary-dark py-2 px-4 rounded-full">
+        <button className="bg-white w-32 text-secondary-dark border border-secondary-dark py-2 px-4 rounded-full">
           Message
         </button>
       </div>

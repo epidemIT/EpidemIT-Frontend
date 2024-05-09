@@ -5,48 +5,53 @@ import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
 import Footer from "@/components/Footer";
 import MentorBox from "./MentorBox";
+import Link from "next/link";
 
 export default function MentorPage() {
   const data = [
     {
-      imageUrl: "/niggs.svg",
+      imageUrl: "/gibs.jpeg",
       name: "Gibran Fasha Ghazanfar",
       title: "Software Engineer at OCBC",
+      reviews: 14,
+      sessions: 15,
+    },
+    {
+      imageUrl:
+        "https://i.pinimg.com/564x/d0/05/db/d005dbd521d642d9dfba7bc63c734c19.jpg",
+      name: "John Sinabutar",
+      title: "Software Engineer at Gojek",
       reviews: 20,
       sessions: 10,
     },
     {
-      imageUrl: "/niggs.svg",
-      name: "Gibran Fasha Ghazanfar",
-      title: "Software Engineer at OCBC",
-      reviews: 20,
+      imageUrl:
+        "https://i.pinimg.com/564x/5e/96/4b/5e964b4d1a6a514bf141c694f5037537.jpg",
+      name: "Nicholas Hutagalung",
+      title: "UI/UX Designer at DANA",
+      reviews: 10,
+      sessions: 4,
+    },
+    {
+      imageUrl:
+        "https://i.pinimg.com/564x/d1/9a/89/d19a89e479823e4ec4938b82541c3e5e.jpg",
+      name: "Syahrial Alzaidan",
+      title: "Software Engineer at Meta",
+      reviews: 10,
+      sessions: 14,
+    },
+    {
+      imageUrl: "/bewok.jpeg",
+      name: "Auvarifqi Putra Diandra",
+      title: "Data Scientist at Kalbe",
+      reviews: 2,
       sessions: 10,
     },
     {
-      imageUrl: "/niggs.svg",
-      name: "Gibran Fasha Ghazanfar",
-      title: "Software Engineer at OCBC",
-      reviews: 20,
-      sessions: 10,
-    },
-    {
-      imageUrl: "/niggs.svg",
-      name: "Gibran Fasha Ghazanfar",
-      title: "Software Engineer at OCBC",
-      reviews: 20,
-      sessions: 10,
-    },
-    {
-      imageUrl: "/niggs.svg",
-      name: "Gibran Fasha Ghazanfar",
-      title: "Software Engineer at OCBC",
-      reviews: 20,
-      sessions: 10,
-    },
-    {
-      imageUrl: "/niggs.svg",
-      name: "Gibran Fasha Ghazanfar",
-      title: "Software Engineer at OCBC",
+      imageUrl:
+        "/niggs.svg",
+      name: "Draymond Blue",
+      title: "Data Engineer at Google",
       reviews: 20,
       sessions: 10,
     },
@@ -64,9 +69,12 @@ export default function MentorPage() {
             </p>
           </div>
 
-          <button className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold">
+          <Link
+            href={"/dashboard/mentor"}
+            className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold"
+          >
             My Scedhule
-          </button>
+          </Link>
         </div>
 
         {/* search & filter area */}

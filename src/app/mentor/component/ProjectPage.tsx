@@ -3,52 +3,59 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
-import ProjectPromoBox from "./ProjectPromoBox";
+import ProjectPromoBox from "../../project/component/ProjectPromoBox";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function ProjectPage() {
   const data = [
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
+      imageUrl:
+        "https://i.pinimg.com/564x/62/38/dc/6238dc40add8eae74709ca45e94e4cee.jpg",
+      projectName: "Machine Learning Predictions",
+      projectCompany: "Tokopedia",
+      deadline: "15 Days",
       skills: ["React", "NodeJS", "MongoDB"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl:
+        "https://i.pinimg.com/564x/49/a4/b3/49a4b376e8be067386d2b4c09a3537bc.jpg",
+      projectName: "Mobile App Development",
+      projectCompany: "Innovate Inc.",
+      deadline: "20 Days",
+      skills: ["React Native", "Firebase"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl:
+        "https://i.pinimg.com/564x/c8/14/3d/c8143d4f565efb867f6565eb6c690fb6.jpg",
+      projectName: "Data Analysis Dashboard",
+      projectCompany: "Data Insights",
+      deadline: "12 Days",
+      skills: ["Python", "Pandas", "Matplotlib"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
+      imageUrl:
+        "https://i.pinimg.com/564x/ca/11/e0/ca11e0ef86216e8d6d56313d4297f95a.jpg",
+      projectName: "UI/UX Redesign",
+      projectCompany: "Design Solutions",
       deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      skills: ["Adobe XD", "Figma", "Sketch"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl:
+        "https://i.pinimg.com/564x/42/19/a0/4219a093885df7a73674f591f6681556.jpg",
+      projectName: "Blockchain Integration",
+      projectCompany: "CryptoTech",
+      deadline: "25 Days",
+      skills: ["Solidity", "Web3.js", "Ethereum"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl:
+        "https://i.pinimg.com/564x/7c/b0/c1/7cb0c1392bccbc0538606b6653677193.jpg",
+      projectName: "AI Chatbot Development",
+      projectCompany: "Fuse",
+      deadline: "18 Days",
+      skills: ["Python", "TensorFlow"],
     },
   ];
 
@@ -64,9 +71,12 @@ export default function ProjectPage() {
             </p>
           </div>
 
-          <button className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold">
+          <Link
+            href="/dashboard/project"
+            className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold"
+          >
             My Project
-          </button>
+          </Link>
         </div>
 
         {/* search & filter area */}
@@ -103,13 +113,13 @@ export default function ProjectPage() {
 
         {/* project box section */}
 
-        <div className="flex flex-wrap gap-6 justify-around">
+        <div className="flex flex-wrap gap-8 justify-center">
           {data.map((project) => (
             <ProjectPromoBox
-              key={project.projectname}
-              imageUrl={project.imageurl}
-              projectName={project.projectname}
-              projectCompany={project.projectcompany}
+              key={project.projectName}
+              imageUrl={project.imageUrl}
+              projectName={project.projectName}
+              projectCompany={project.projectCompany}
               deadline={project.deadline}
               skills={project.skills}
             />
