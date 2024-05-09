@@ -9,7 +9,7 @@ export default function Dashboard() {
       <Sidebar active="dashboard" />
 
       <div className="flex flex-col w-4/5">
-        <div className="px-[5%] py-[2.5%] w-full flex flex-col gap-2 md:gap-4">
+        <div className="px-[5%] py-[10%] lg:py-[8%] w-full flex flex-col gap-2 md:gap-4">
           <h1 className="text-2xl md:text-3xl font-semibold">
             Progress Belajar
           </h1>

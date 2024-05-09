@@ -1,6 +1,8 @@
+"use client";
 import ProgressBar from "@ramonak/react-progress-bar";
 import Image from "next/image";
 import { FaChevronRight } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 interface ProjectProps {
   id: string;
@@ -23,8 +25,12 @@ export default function ProjectBoxDashboard({
   project: ProjectProps;
   progress: number;
 }) {
+  const router = useRouter();
+
   return (
-    <div className="rounded-lg shadow-lg md:flex gap-8 p-5 w-full items-center">
+    <div 
+    onClick={() => router.push(`/dashboard/project/${project?.id}`)}
+    className="rounded-lg cursor-pointer shadow-lg md:flex gap-8 p-5 w-full items-center">
       <Image
         src={project?.image_url}
         width={170}
@@ -50,10 +56,9 @@ export default function ProjectBoxDashboard({
               <ProgressBar
                 completed={progress}
                 bgColor="#119ABE"
-                height="10px"
-                isLabelVisible={false}
+                height="18px"
+                isLabelVisible={true}
               />
-              <p>{progress}%</p>
             </>
           ) : (
             <button className="bg-[#FF6B2D] px-4 py-2 rounded-full mt-2 text-white">

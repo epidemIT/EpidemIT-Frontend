@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Skills from "./Skills";
+import { useRouter } from "next/navigation";
 
 interface ProjectPromoBoxProps {
   imageUrl: string;
@@ -16,8 +18,14 @@ export default function ProjectPromoBox({
   deadline,
   skills,
 }: ProjectPromoBoxProps) {
+  const router = useRouter();
   return (
-    <div className="flex gap-8 w-fit h-fit py-6 px-[2%] shadow-lg rounded-lg">
+    <div
+      onClick={() => {
+        router.push("/project/1");
+      }}
+      className="flex gap-8 w-[450px] h-[250px] cursor-pointer py-6 px-[2%] shadow-lg rounded-lg"
+    >
       <div className="flex flex-col justify-center">
         <Image src={imageUrl} width={100} height={48} alt="Logo" />
       </div>

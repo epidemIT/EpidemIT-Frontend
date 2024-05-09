@@ -3,52 +3,53 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
-import ProjectPromoBox from "./ProjectPromoBox";
+import ProjectPromoBox from "../../project/component/ProjectPromoBox";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function ProjectPage() {
   const data = [
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
+      imageUrl: "/home-credit.png",
+      projectName: "E-commerce Website",
+      projectCompany: "Tech Corp",
+      deadline: "15 Days",
       skills: ["React", "NodeJS", "MongoDB"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl: "/home-credit.png",
+      projectName: "Mobile App Development",
+      projectCompany: "Innovate Inc.",
+      deadline: "20 Days",
+      skills: ["React Native", "Firebase"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl: "/home-credit.png",
+      projectName: "Data Analysis Dashboard",
+      projectCompany: "Data Insights",
+      deadline: "12 Days",
+      skills: ["Python", "Pandas", "Matplotlib"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
+      imageUrl: "/home-credit.png",
+      projectName: "UI/UX Redesign",
+      projectCompany: "Design Solutions",
       deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      skills: ["Adobe XD", "Figma", "Sketch"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl: "/home-credit.png",
+      projectName: "Blockchain Integration",
+      projectCompany: "CryptoTech",
+      deadline: "25 Days",
+      skills: ["Solidity", "Web3.js", "Ethereum"],
     },
     {
-      imageurl: "/home-credit.png",
-      projectname: "Project Name",
-      projectcompany: "Company Name",
-      deadline: "10 Days",
-      skills: ["React", "NodeJS", "MongoDB"],
+      imageUrl: "/home-credit.png",
+      projectName: "AI Chatbot Development",
+      projectCompany: "Smart Solutions",
+      deadline: "18 Days",
+      skills: ["Python", "TensorFlow"],
     },
   ];
 
@@ -64,9 +65,12 @@ export default function ProjectPage() {
             </p>
           </div>
 
-          <button className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold">
+          <Link
+            href="/dashboard/project"
+            className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold"
+          >
             My Project
-          </button>
+          </Link>
         </div>
 
         {/* search & filter area */}
@@ -103,13 +107,13 @@ export default function ProjectPage() {
 
         {/* project box section */}
 
-        <div className="flex flex-wrap gap-6 justify-around">
+        <div className="flex flex-wrap gap-8 justify-center">
           {data.map((project) => (
             <ProjectPromoBox
-              key={project.projectname}
-              imageUrl={project.imageurl}
-              projectName={project.projectname}
-              projectCompany={project.projectcompany}
+              key={project.projectName}
+              imageUrl={project.imageUrl}
+              projectName={project.projectName}
+              projectCompany={project.projectCompany}
               deadline={project.deadline}
               skills={project.skills}
             />

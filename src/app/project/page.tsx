@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import ProjectPage from "./component/ProjectPage";
+import ProjectPage from "../mentor/component/ProjectPage";
 
 export default function Page() {
   return (
