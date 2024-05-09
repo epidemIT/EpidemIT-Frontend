@@ -205,4 +205,4 @@ const MentorModal = () => {
   );
 };
 
-export default ProjectModal;
+export default MentorModal;
