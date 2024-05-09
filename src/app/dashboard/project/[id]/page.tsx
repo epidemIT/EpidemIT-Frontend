@@ -4,16 +4,16 @@ import { performRequest } from "../../../../../lib/datocms";
 const PAGE_CONTENT_QUERY = `
 query Materials($projectid: String){
     allMaterials(orderBy: materiKe_ASC, filter: {projectid: {eq: $projectid}}) {
+      _firstPublishedAt
       id
       _status
-      _firstPublishedAt
       content {
         value
         blocks
       }
       content1 {
-        blocks
         value
+        blocks
       }
       file {
         responsiveImage {
