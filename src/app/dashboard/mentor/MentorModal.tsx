@@ -25,7 +25,7 @@ import {
 
 import { Textarea } from "@/components/ui/textarea";
 
-const ProjectModal = () => {
+const MentorModal = () => {
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
 
