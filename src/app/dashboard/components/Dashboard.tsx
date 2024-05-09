@@ -26,7 +26,7 @@ export default function Dashboard() {
             project={{
               id: "978e6a2a-9715-4bd6-97d1-64c1c369eaf8",
               image_url: "https://i.pinimg.com/564x/62/38/dc/6238dc40add8eae74709ca45e94e4cee.jpg",
-              name: "Data Scientist Tokopedia - Beginner",
+              name: "Data Scientist - Beginner",
               partner_name: "Tokopedia",
               deadline: "Deadline",
               users: ["Users"],
@@ -50,9 +50,9 @@ export default function Dashboard() {
           <ProjectBoxDashboard
             project={{
               id: "978e6a2a-9715-4bd6-97d1-64c1c369eaf8",
-              image_url: "https://i.pinimg.com/564x/62/38/dc/6238dc40add8eae74709ca45e94e4cee.jpg",
-              name: "Data Scientist Tokopedia - Beginner",
-              partner_name: "Tokopedia",
+              image_url: "https://i.pinimg.com/564x/c8/14/3d/c8143d4f565efb867f6565eb6c690fb6.jpg",
+              name: "Data Analysis Dashboard - Beginner",
+              partner_name: "Data Insights",
               deadline: "Deadline",
               users: ["Users"],
               skills: ["Skills"],
@@ -61,7 +61,7 @@ export default function Dashboard() {
               project_description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               partner_description:
-                "This project involves beginner-level data science training for Tokopedia. Participants will learn beginner techniques and tools for data science and analytics.",
+                "This project involves beginner-level data analysis training for Data Insights. Participants will learn beginner techniques and tools for data science and analytics.",
             }}
             progress={71}
           />
