@@ -26,8 +26,6 @@ import {
 
 import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { time } from "console";
 
 const FinancialAid = () => {
   const [modal1, setModal1] = useState(false);
