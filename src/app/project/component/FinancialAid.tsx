@@ -35,12 +35,7 @@ const FinancialAid = () => {
     <div>
       <Dialog>
         <DialogTrigger>
-          <div
-            className="p-2 text-xl bg-white text-secondary-dark rounded-full"
-            onClick={() => setModal1(true)}
-          >
-            Financial Aid
-          </div>
+          <div onClick={() => setModal1(true)}>Financial Aid</div>
         </DialogTrigger>
         <DialogContent
           className="max-w-[900px] overflow-y-scroll max-h-screen no-scrollbar"

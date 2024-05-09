@@ -23,7 +23,7 @@ export default function ProjectDetails() {
 
           <div className="text-center">
             <h1 className="font-semibold text-2xl">
-            Data Scientist - Beginner
+              Data Scientist - Beginner
             </h1>
             <p className="text-gray-500">Tokopedia</p>
           </div>
@@ -59,7 +59,9 @@ export default function ProjectDetails() {
             Daftar
           </button>
 
-          <FinancialAid />
+          <div className="p-2 text-xl text-secondary-dark bg-white rounded-full flex justify-center items-center">
+            <FinancialAid />
+          </div>
 
           <button
             onClick={() => handleScroll("silabus")}
