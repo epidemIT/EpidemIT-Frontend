@@ -142,7 +142,7 @@ export default function ProjectDetails() {
         <ul className="list-disc text-lg">
           <li>Machine Learning Introduction</li>
           <li>Machine Learning Types</li>
-          <li>Submission</li>
+          <li>Final Project</li>
         </ul>
       </div>
     </div>
