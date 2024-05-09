@@ -1,10 +1,11 @@
 import Dashboard from "./components/Dashboard";
-import ProjectModal from "./components/ProjectModal";
+import FinancialAid from "./components/FinancialAid";
 
 export default function Page() {
   return (
     <>
       <Dashboard />
+      <FinancialAid />
     </>
   );
 }
