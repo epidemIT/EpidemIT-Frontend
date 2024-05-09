@@ -41,7 +41,7 @@ const ProjectModal = () => {
           </div>
         </DialogTrigger>
         <DialogContent
-          className="max-w-[45%]"
+          className="max-w-[900px]"
           onCloseAutoFocus={() => {
             setModal1(false);
             setModal2(false);
@@ -56,7 +56,7 @@ const ProjectModal = () => {
               Book 1 on 1 mentoring session with{" "}
               <span className="font-bold text-lg">Asep Berlian</span>
             </h2>
-            <div className="flex gap-5 mt-4 items-center justify-center">
+            <div className="grid grid-cols-3 md:flex gap-5 mt-4 items-center justify-center">
               <div className="flex flex-col justify-between items-center px-8 py-5 border-[1px] border-[#8C8C8C] rounded-[10px]">
                 <p className="text-md text-[#8C8C8C] font-medium">Wed</p>
                 <h1 className="text-black font-bold text-[40px]">08</h1>
@@ -96,16 +96,16 @@ const ProjectModal = () => {
               <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
                 08.30
               </p>
-              <p className="flex px-4 py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
                 09.30
               </p>
-              <p className="flex px-4 py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
                 10.30
               </p>
-              <p className="flex px-4 py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
                 11.30
               </p>
-              <p className="flex px-4 py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
+              <p className="flex py-2 border-[1px] border-[#8C8C8C] font-bold text-lg justify-center rounded-[10px]">
                 08.30
               </p>
             </div>
@@ -127,7 +127,7 @@ const ProjectModal = () => {
             <h2 className="text-2xl text-[#031E31] mt-6 font-semibold ">
               Confirm Booking
             </h2>
-            <div className="flex items-center justify-between">
+            <div className="grid grid-cols-1 gap-4 md:flex items-center justify-between">
               <div className="flex items-center gap-4 mt-4">
                 <Image
                   src={"/gibs.jpeg"}
@@ -144,7 +144,7 @@ const ProjectModal = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between items-center gap-10 px-4 py-4 border-[1px] h-fit">
+              <div className="flex justify-between items-center gap-10 px-4 py-4 border-[3px] shadow-md border-[#F1F1F1] rounded-lg h-fit">
                 <div>
                   <p className="text-xl font-bold">09 May 2024</p>
                   <p className="text-lg font-medium text-[#8C8C8C]">12:30</p>
@@ -155,11 +155,11 @@ const ProjectModal = () => {
             <hr className=" mt-6 h-[1px] w-[90%] mx-auto bg-[#8C8C8C]" />
             <h3 className="text-2xl font-medium mt-5">Booking Details</h3>
 
-            <div className="flex gap-10 mt-6">
+            <div className="geid grid-cols-1 gap-4 md:flex justify-between mt-2">
               <div>
-                <p className="text-md font-semibold mb-4">Select Main Topic</p>
+                <p className="text-md font-semibold my-4">Select Main Topic</p>
                 <Select>
-                  <SelectTrigger className="w-[300px]">
+                  <SelectTrigger className="w-[420px]">
                     <SelectValue placeholder="Please Select" />
                   </SelectTrigger>
                   <SelectContent>
@@ -175,11 +175,11 @@ const ProjectModal = () => {
                 </Select>
               </div>
               <div>
-                <p className="text-md font-semibold mb-4">
+                <p className="text-md font-semibold my-4">
                   Add your questions for this session
                 </p>
                 <Textarea
-                  className="w-[360px]"
+                  className="w-[420px]"
                   placeholder="Type your message here."
                 />
               </div>
