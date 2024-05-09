@@ -87,7 +87,7 @@ export default function ProjectContent({
       }
 
       const data = await response.json();
-      
+
       setSummarizedText(data[0].summary_text);
     } catch (error) {
       console.error(error);
@@ -164,7 +164,7 @@ export default function ProjectContent({
               currentMateri?.image?.responsiveImage.webpSrcSet && (
                 <ResponsiveImage
                   data={currentMateri?.image?.responsiveImage}
-                  className="object-cover w-full h-auto min-h-full"
+                  className="object-cover w-full h-auto max-h-full"
                   layout="responsive"
                 />
               )}
@@ -198,7 +198,16 @@ export default function ProjectContent({
           </button>
 
           {/* tampilkan summary text */}
-          <p className="text-gray-500 text-lg mt-4">{summarizedText}</p>
+          {summarizedText ? (
+            <div>
+              <h3 className="mb-4 font-bold text-xl"> Summmarized Text</h3>
+              <div className="border-[1px] p-4 rounded-lg shadow-md">
+                <p className="text-gray-500 text-lg">{summarizedText}</p>
+              </div>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>
