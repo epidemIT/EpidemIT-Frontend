@@ -4,13 +4,15 @@ import Image from "next/image";
 import ProfileBox from "./ProfileBox";
 import MenuIcon from "./MenuIcon";
 import Link from "next/link";
+import { User } from "./UserFetcher";
 
 interface NavbarProps {
   currentPage: string;
   home?: boolean;
+  user: User | null;
 }
 
-export default function Navbar({ currentPage, home }: NavbarProps) {
+export default function Navbar({ currentPage, home, user }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
