@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import ToasterContext from "@/components/ToasterContext";
+import Navbar from "@/components/Navbar";
+import UserFetcher from "@/components/UserFetcher";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -24,6 +26,7 @@ export default function RootLayout({
       <link rel="icon" href="/logo-gambar.png" />
       <body className={roboto.className}>
         <ToasterContext />
+        {/* <UserFetcher>{({ user }) => <Navbar user={user} />}</UserFetcher> */}
         {children}
       </body>
     </html>
