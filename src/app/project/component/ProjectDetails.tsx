@@ -56,7 +56,7 @@ export default function ProjectDetails() {
         </div>
 
         <div className="bg-[#f1f0f0] md:w-1/5 flex flex-col justify-center gap-4 p-4 rounded-lg">
-          <button className="p-2 text-xl text-white bg-secondary-dark rounded-full">
+          <button className="p-2 text-xl text-white bg-secondary-dark rounded-full flex justify-center items-center">
             <ProjectRegist />
           </button>
 
