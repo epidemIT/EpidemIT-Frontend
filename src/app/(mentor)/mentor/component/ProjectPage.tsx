@@ -61,7 +61,7 @@ export default function ProjectPage() {
 
   return (
     <>
-      <div className="flex flex-col gap-12 justify-start w-full mt-12">
+      <div className="flex flex-col gap-12 justify-start w-full mt-44">
         {/* box for promo */}
         <div className="w-full flex flex-col gap-8 lg:flex-row lg:items-center justify-between rounded-lg text-white py-6 lg:py-16 px-7 lg:px-14 h-fit lg:h-96 bg-no-repeat bg-cover bg-[url('/proj-bg.svg')]">
           <div className="flex flex-col gap-8 lg:w-2/5">

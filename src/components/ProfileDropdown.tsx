@@ -1,6 +1,7 @@
 "use client";
 import { IconType } from "react-icons";
 import Link from "next/link";
+import Cookies from "universal-cookie";
 
 export interface NavigationProps {
   icon: IconType;
@@ -14,9 +15,12 @@ const ProfileDropdown = ({
   isOpen: boolean;
   navigation: NavigationProps[];
 }) => {
-  //   const handleSignOut = async () => {
-  //     await signOut();
-  //   };
+  const cookies = new Cookies();
+
+  const handleLogout = () => {
+    cookies.remove("token");
+    window.location.reload();
+  };
 
   return (
     <div
@@ -40,7 +44,7 @@ const ProfileDropdown = ({
         ))}
         <button
           className="w-full select-none rounded-md font-semibold py-1 mt-4 text-[0.875rem] transition bg-red-500 text-white hover:brightness-110"
-          onClick={() => {}}
+          onClick={handleLogout}
         >
           Logout
         </button>

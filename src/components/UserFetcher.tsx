@@ -18,7 +18,7 @@ export default async function UserFetcher({ children }: UserFetcherProps) {
 
   // Fetch the user data from the API
   const response = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND_URL + `/users/current`,
+    process.env.NEXT_PUBLIC_BACKEND_URL + `/api/v1/users/current`,
     {
       method: "GET",
       headers: {
@@ -27,14 +27,11 @@ export default async function UserFetcher({ children }: UserFetcherProps) {
     }
   );
 
-    if (!response.ok) {
+  const user = await response.json();
+
+  if (!response.ok) {
     return children({ user: null });
-    }
+  }
 
-    const user = await response.json();
-
-    console.log("user", user)
-
-  // Pass the user data as props to the child components
   return children({ user });
 }

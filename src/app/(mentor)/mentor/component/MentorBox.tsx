@@ -28,14 +28,13 @@ export default function MentorBox({
       }}
       className="cursor-pointer rounded-lg p-2 pb-6 bg-[#f5f4f4] flex flex-col justify-center gap-6 shadow-lg"
     >
-      <div className="w-80 aspect-square bg-slate-300 relative overflow-hidden">
-        <Image
-          src={imageUrl}
-          fill={true}
-          alt="profile"
-          className="object-cover w-full h-full"
-        />
-      </div>
+      <Image
+        alt="Profile Picture"
+        src={imageUrl}
+        width={200}
+        height={100}
+        className="rounded-lg w-80 h-80 object-cover aspect-square"
+      />
 
       <h1 className="text-2xl font-medium text-center">{name}</h1>
 
