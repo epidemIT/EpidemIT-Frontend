@@ -3,6 +3,7 @@ import Image from "next/image";
 import Skills from "./Skills";
 import { MdOutlineGroup } from "react-icons/md";
 import FinancialAid from "./FinancialAid";
+import ProjectRegist from "./ProjectRegist";
 
 export default function ProjectDetails() {
   const handleScroll = (id: string) => {
@@ -56,7 +57,7 @@ export default function ProjectDetails() {
 
         <div className="bg-[#f1f0f0] md:w-1/5 flex flex-col justify-center gap-4 p-4 rounded-lg">
           <button className="p-2 text-xl text-white bg-secondary-dark rounded-full">
-            Daftar
+            <ProjectRegist />
           </button>
 
           <div className="p-2 text-xl text-secondary-dark bg-white rounded-full flex justify-center items-center">
