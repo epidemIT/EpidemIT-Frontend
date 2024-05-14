@@ -98,9 +98,26 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
           >
             Project
           </Link>
-          <div className="text-black md:hidden flex justify-center">
-            <ProfileBox name="John Doe" imgurl="/profile.jpg" />
-          </div>
+          {user?.id ? (
+            <div className="md:hidden block">
+              <ProfileBox name={user.full_name} imgurl={user.photo} />
+            </div>
+          ) : (
+            <div className="md:hidden flex flex-col items-center gap-6">
+              <Link
+                href="/signup"
+                className="bg-white md:w-24 text-center text-primary/80 font-semibold rounded-lg px-4 py-2 w-full"
+              >
+                Register
+              </Link>
+              <Link
+                href="/login"
+                className="bg-secondary-dark md:w-24 text-center text-white font-semibold rounded-lg px-4 py-2 w-full"
+              >
+                Login
+              </Link>
+            </div>
+          )}
         </ul>
       </div>
 
@@ -109,7 +126,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
           <ProfileBox name={user.full_name} imgurl={user.photo} />
         </div>
       ) : (
-        <div className="flex gap-6">
+        <div className="md:flex gap-6 hidden">
           <Link
             href="/signup"
             className="bg-white w-24 text-center text-primary/80 font-semibold rounded-lg p-4"
