@@ -26,7 +26,7 @@ export default function RootLayout({
       <link rel="icon" href="/logo-gambar.png" />
       <body className={roboto.className}>
         <ToasterContext />
-        {/* <UserFetcher>{({ user }) => <Navbar user={user} />}</UserFetcher> */}
+  
         {children}
       </body>
     </html>

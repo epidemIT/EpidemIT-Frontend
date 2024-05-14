@@ -7,13 +7,14 @@ import Link from "next/link";
 import { User } from "./UserFetcher";
 
 interface NavbarProps {
-  currentPage: string;
+  currentPage?: string;
   home?: boolean;
   user: User | null;
 }
 
 export default function Navbar({ currentPage, home, user }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,12 +24,23 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
       }
     };
 
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
+    const handleScroll = () => {
+      // Change the background color based on scroll position
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-    // Remove event listener on component unmount
+    // Add event listeners for window resize and scroll
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove event listeners on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -39,8 +51,10 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
   return (
     <nav
       className={`${
-        home ? "bg-transparent" : "bg-primary"
-      } w-full py-4 px-8 flex items-center justify-between rounded-2xl`}
+        home && !scrolled ? "bg-transparent" : "bg-primary"
+      } w-full py-4 px-20 flex items-center justify-between ${
+        home ? "rounded-none" : "rounded-2xl"
+      } transition-colors duration-300 z-50`}
     >
       <Link href={"/"} className="cursor-pointer">
         <Image src="/logo-epidemit.svg" width={150} height={50} alt="Logo" />
@@ -60,7 +74,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
               currentPage == "Home"
                 ? "underline md:no-underline text-secondary-dark"
                 : "text-white"
-            }cursor-pointer text-xl`}
+            } cursor-pointer text-xl`}
           >
             Home
           </Link>
@@ -70,7 +84,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
               currentPage == "Mentor"
                 ? "underline md:no-underline text-secondary-dark"
                 : "text-white"
-            }cursor-pointer text-xl`}
+            } cursor-pointer text-xl`}
           >
             Mentor
           </Link>
@@ -80,7 +94,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
               currentPage == "Project"
                 ? "underline md:no-underline text-secondary-dark"
                 : "text-white"
-            }cursor-pointer text-xl`}
+            } cursor-pointer text-xl`}
           >
             Project
           </Link>
@@ -90,9 +104,26 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
         </ul>
       </div>
 
-      <div className="hidden md:block">
-        <ProfileBox name="John Doe" imgurl="/profile.jpg" />
-      </div>
+      {user?.id ? (
+        <div className="hidden md:block">
+          <ProfileBox name={user.full_name} imgurl={user.photo} />
+        </div>
+      ) : (
+        <div className="flex gap-6">
+          <Link
+            href="/signup"
+            className="bg-white w-24 text-center text-primary/80 font-semibold rounded-lg p-4"
+          >
+            Register
+          </Link>
+          <Link
+            href="/login"
+            className="bg-secondary-dark w-24 text-center text-white font-semibold rounded-lg p-4"
+          >
+            Login
+          </Link>
+        </div>
+      )}
 
       <MenuIcon isOpen={menuOpen} handleToggle={toggleMenu} />
     </nav>

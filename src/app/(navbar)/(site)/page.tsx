@@ -1,6 +1,5 @@
 "use client";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,11 +16,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <section className="bg-[url('/home-hero.svg')] min-h-screen bg-no-repeat bg-cover py-8">
-        <div className="px-4 lg:px-16">
-          <Navbar currentPage="Home" home={true} />
-        </div>
-
+      <section className="bg-[url('/home-hero.svg')] min-h-screen bg-no-repeat bg-cover py-24">
         <div className="flex pb-20 h-[1000px] lg:h-full gap-28 px-[5%] mt-8 flex-col justify-between lg:items-center xl:flex-row lg:justify-center">
           <Image src="/laptop-hero.svg" width={570} height={50} alt="Logo" />
           <div className="flex flex-col items-start lg:justify-center gap-4 lg:w-1/4">
@@ -55,9 +50,10 @@ export default function Home() {
             <br /> <br />
             With our project-based learning feature, users dive into real-world
             scenarios, developing practical skills and problem-solving abilities
-            essential in today`&apos;`s tech landscape. Additionally, our mentorship
-            program connects learners with industry experts, providing valuable
-            insights and guidance along their educational journey.
+            essential in today`&apos;`s tech landscape. Additionally, our
+            mentorship program connects learners with industry experts,
+            providing valuable insights and guidance along their educational
+            journey.
             <br /> <br />
             Join us at epidemIT and embark on a transformative learning
             experience, where everyone has the opportunity to thrive in the

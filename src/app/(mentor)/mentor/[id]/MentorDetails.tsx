@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Skills from "@/app/project/component/Skills";
+import Skills from "@/app/(mentor)/project/component/Skills";
 import Experience from "./Experience";
 import Review from "./Review";
 import MentorBox from "../component/MentorBox";
@@ -7,7 +7,7 @@ import MentorModal from "../component/MentorModal";
 
 export default function MentorDetails() {
   return (
-    <div className="mt-12 flex flex-col md:items-center">
+    <div className="mt-44 flex flex-col md:items-center">
       <div className="flex md:flex-row w-full items-center flex-col justify-between gap-12">
         <div className="w-1/2">
           <div className="w-56 aspect-square bg-slate-300 rounded-full relative overflow-hidden">
@@ -38,12 +38,13 @@ export default function MentorDetails() {
         <h1 className="font-semibold text-2xl">Overview</h1>
 
         <p className="text-lg">
-          With 15+ years of HR and Organizational Development experience, I`&apos;`m
-          dedicated to shaping organizations through mentorship. Armed with a
-          Bachelor`&apos;`s in Computer Science, a Master`&apos;`s in HR, and SHRM-SCP
-          certification, I offer practical insights. I`&apos;`ve worked with diverse
-          organizations, from startups to industry leaders, spanning e-Commerce,
-          finance, education, and HR consulting.
+          With 15+ years of HR and Organizational Development experience,
+          I`&apos;`m dedicated to shaping organizations through mentorship.
+          Armed with a Bachelor`&apos;`s in Computer Science, a Master`&apos;`s
+          in HR, and SHRM-SCP certification, I offer practical insights.
+          I`&apos;`ve worked with diverse organizations, from startups to
+          industry leaders, spanning e-Commerce, finance, education, and HR
+          consulting.
         </p>
       </div>
 
@@ -79,9 +80,7 @@ export default function MentorDetails() {
           </div>
 
           <div className="flex flex-col gap-8">
-            <h1 className="text-2xl text-primary font-semibold">
-              Reviews
-            </h1>
+            <h1 className="text-2xl text-primary font-semibold">Reviews</h1>
             <Review
               name="Ibnu"
               review="Mentor yang sangat baik, membantu saya dalam memahami konsep data science"
