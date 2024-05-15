@@ -10,6 +10,7 @@ interface ProjectPromoBoxProps {
   name: string;
   project_description: string;
   short_description: string;
+  price: number;
   peralatan_belajar: string;
   silabus: string;
   total_hours: number;
@@ -39,7 +40,6 @@ export default function ProjectDetails({
   const peralatanBelajar = data.peralatan_belajar.split(", ");
   const silabus = data.silabus.split(", ");
 
-  console.log("data", data);
   return (
     <div className="mt-44 flex flex-col md:items-center">
       <div className="flex md:flex-row flex-col justify-around gap-12">
@@ -73,7 +73,7 @@ export default function ProjectDetails({
 
         <div className="bg-[#f1f0f0] md:w-1/5 flex flex-col justify-center gap-4 p-4 rounded-lg">
           <button className="p-2 text-xl text-white bg-secondary-dark rounded-full flex justify-center items-center">
-            <ProjectRegist />
+            <ProjectRegist data={data} />
           </button>
 
           <div className="p-2 text-xl text-secondary-dark bg-white rounded-full flex justify-center items-center">
