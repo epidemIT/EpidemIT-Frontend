@@ -128,7 +128,6 @@ export default function ProjectPage() {
 
         {/* Footer */}
       </div>
-      <Footer />
     </>
   );
 }
