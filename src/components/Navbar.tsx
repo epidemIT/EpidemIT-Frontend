@@ -5,6 +5,7 @@ import ProfileBox from "./ProfileBox";
 import MenuIcon from "./MenuIcon";
 import Link from "next/link";
 import { User } from "./UserFetcher";
+import { Switch } from "@/components/ui/switch";
 
 interface NavbarProps {
   currentPage?: string;
@@ -13,6 +14,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ currentPage, home, user }: NavbarProps) {
+  const [cblind, setCblind] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -82,7 +84,9 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
             href={"/mentor"}
             className={`${
               currentPage == "Mentor"
-                ? "underline md:no-underline text-secondary-dark"
+                ? `underline md:no-underline ${
+                    cblind === false ? "text-secondary-dark" : "text-orange-400"
+                  }`
                 : "text-white"
             } cursor-pointer text-xl`}
           >
@@ -92,12 +96,19 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
             href={"/project"}
             className={`${
               currentPage == "Project"
-                ? "underline md:no-underline text-secondary-dark"
+                ? `underline md:no-underline ${
+                    cblind === false ? "text-secondary-dark" : "text-orange-400"
+                  }`
                 : "text-white"
             } cursor-pointer text-xl`}
           >
             Project
           </Link>
+          <div>
+            <Switch checked={cblind} onCheckedChange={setCblind} />
+            <p className="text-white text-lg">Colorblind Mode</p>
+          </div>
+
           {user?.id ? (
             <div className="md:hidden block">
               <ProfileBox name={user.full_name} imgurl={user.photo} />
