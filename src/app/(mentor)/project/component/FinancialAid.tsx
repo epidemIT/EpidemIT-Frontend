@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Image from "next/image";
 
 import {
@@ -26,10 +25,39 @@ import {
 
 import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
+import Cookies from "universal-cookie";
 
 const FinancialAid = () => {
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+  const cookie = new Cookies();
+  const token = cookie.get("token");
+
+  const sendEmail = async () => {
+    setModal1(false);
+    setModal2(true);
+
+    console.log(token)
+
+    const response = await fetch(
+      process.env.NEXT_PUBLIC_BACKEND_URL +
+        "/api/v1/projects/apply/financialaid",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (response.ok) {
+      toast.success("Email sent successfully");
+    } else {
+      toast.error("Failed to send email");
+    }
+
+    console.log(response)
+  };
 
   return (
     <div>
@@ -192,16 +220,7 @@ const FinancialAid = () => {
             <div className="flex justify-center items-center">
               <div
                 className="flex cursor-pointer justify-center items-center mt-5  rounded-full w-[80%] py-3 bg-[#2FBFA6]"
-                onClick={() => {
-                  setModal1(false);
-                  setModal2(true);
-                  toast.success(
-                    "Terima kasih telah mengisi form, ditunggu kabarnya di email"
-                  );
-                  setTimeout(() => {
-                    window.location.reload();
-                  }, 1000);
-                }}
+                onClick={sendEmail}
               >
                 <p className="text-white">Submit</p>
               </div>

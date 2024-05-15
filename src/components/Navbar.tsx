@@ -54,7 +54,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
     <nav
       className={`${
         home && !scrolled ? "bg-transparent" : "bg-primary"
-      } w-full py-4 px-20 flex items-center justify-between ${
+      } w-full py-4 pl-20 pr-6 flex items-center justify-between ${
         home ? "rounded-none" : "rounded-2xl"
       } transition-colors duration-300 z-50`}
     >
@@ -104,14 +104,16 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
           >
             Project
           </Link>
-          <div>
-            <Switch checked={cblind} onCheckedChange={setCblind} />
-            <p className="text-white text-lg">Colorblind Mode</p>
-          </div>
 
           {user?.id ? (
-            <div className="md:hidden block">
-              <ProfileBox name={user.full_name} imgurl={user.photo} />
+            <div className="flex flex-col items-center gap-2">
+              <div className="md:hidden block">
+                <ProfileBox name={user.full_name} imgurl={user.photo} />
+              </div>
+              <div className="flex lg:hidden flex-col gap-2 justify-center items-center">
+                <Switch checked={cblind} onCheckedChange={setCblind} />
+                <p className="text-white text-lg">Colorblind Mode</p>
+              </div>
             </div>
           ) : (
             <div className="md:hidden flex flex-col items-center gap-6">
@@ -133,8 +135,14 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
       </div>
 
       {user?.id ? (
-        <div className="hidden md:block">
-          <ProfileBox name={user.full_name} imgurl={user.photo} />
+        <div className="flex gap-2">
+          <div className="hidden md:block">
+            <ProfileBox name={user.full_name} imgurl={user.photo} />
+          </div>
+          <div className="hidden lg:flex flex-col gap-2 justify-center items-center">
+            <Switch checked={cblind} onCheckedChange={setCblind} />
+            <p className="text-white text-lg">Colorblind Mode</p>
+          </div>
         </div>
       ) : (
         <div className="md:flex gap-6 hidden">
