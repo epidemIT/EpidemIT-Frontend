@@ -1,8 +1,7 @@
-import Navbar from "@/components/Navbar";
-import ProjectPage from "./component/ProjectPage";
 import MentorPage from "./component/MentorPage";
 
-export default function Page() {
+export default async function Page() {
+
   return (
     <div className="flex flex-col px-[6%] items-center pt-8">
       <MentorPage />
