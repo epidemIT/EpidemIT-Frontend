@@ -6,8 +6,13 @@ import { CiFilter } from "react-icons/ci";
 import ProjectPromoBox from "../../project/component/ProjectPromoBox";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function ProjectPage() {
+  let cb;
+  cb = window.localStorage.getItem("cBlindKey") === "true";
+  const [cblind, setCb] = useState<boolean | undefined>(cb);
+
   const data = [
     {
       imageUrl:
@@ -73,7 +78,9 @@ export default function ProjectPage() {
 
           <Link
             href="/dashboard/project"
-            className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold"
+            className={`px-4 py-2 ${
+              !cblind ? "bg-secondary-dark" : "bg-orange-400"
+            } rounded-full text-xl font-semibold`}
           >
             My Project
           </Link>
