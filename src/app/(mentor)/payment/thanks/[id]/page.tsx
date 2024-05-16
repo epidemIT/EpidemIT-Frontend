@@ -1,54 +1,40 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-import Cookies from "universal-cookie";
-import toast from "react-hot-toast";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import Thanks from "./Thanks";
+import { cookies } from "next/headers";
 
-export default function Thanks({ params }: { params: { id: string } }) {
-  const router = useRouter();
-  const cookie = new Cookies();
+const page = async ({ params }: { params: { id: string } }) => {
+  const cookie = cookies();
+  const token = cookie.get("token");
 
-  useEffect(() => {
-    const handleRegisterProject = async () => {
-      const payload = {
-        project_id: params.id,
-        progress: 0.000,
-      };
-
-      const res = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "/api/v1/projects/apply/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${cookie.get("token")}`,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      const resultDB = await res.json();
-
-      if (resultDB.message === "Applied to project successfully") {
-        toast.success("Pembayaran dan pendaftaran berhasil");
-      } else {
-        toast.error("Pembayaran dan pendaftaran gagal");
-      }
+  let resultDB;
+  if (token) {
+    const payload = {
+      project_id: params.id,
+      progress: 0.0,
     };
 
-    handleRegisterProject();
-  }, [params.id, cookie]);
+    const res = await fetch(
+      process.env.NEXT_PUBLIC_BACKEND_URL + "/api/v1/projects/apply/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token.value}`,
+        },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    resultDB = await res.json();
+  }
 
   return (
-    <div className="flex items-center justify-center h-screen flex-col">
-      <h1 className="text-3xl font-bold">Thank you for your payment!</h1>
-
-      <button
-        className="bg-primary text-white rounded-md p-2 mt-4"
-        onClick={() => router.push("/dashboard/project")}
-      >
-        Return to Dashboard
-      </button>
-    </div>
+    <Thanks
+      params={params}
+      token={token as RequestCookie}
+      resultDB={resultDB}
+    />
   );
-}
+};
+
+export default page;
