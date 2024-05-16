@@ -14,42 +14,28 @@ interface NavbarProps {
 }
 
 export default function Navbar({ currentPage, home, user }: NavbarProps) {
-  let cb;
-  if (window.localStorage.getItem("cBlindKey") === undefined) {
-    window.localStorage.setItem("cBlindKey", "false");
-  }
-  cb = window.localStorage.getItem("cBlindKey") === "true";
-  const [cblind, setCb] = useState<boolean | undefined>(cb);
-  const switchChange = () => {
-    window.localStorage.setItem("cBlindKey", String(!cblind));
-    setCb(!cblind);
-  };
-
+  const [cblind, setCb] = useState<boolean | undefined>(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      // Close the menu if the screen size is greater than md
-      if (window.innerWidth > 768) {
+      if (typeof window !== 'undefined' && window.innerWidth > 768) {
         setMenuOpen(false);
       }
     };
 
     const handleScroll = () => {
-      // Change the background color based on scroll position
-      if (window.scrollY > 0) {
+      if (typeof window !== 'undefined' && window.scrollY > 0) {
         setScrolled(true);
       } else {
         setScrolled(false);
       }
     };
 
-    // Add event listeners for window resize and scroll
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
 
-    // Remove event listeners on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
@@ -58,6 +44,19 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  useEffect(() => {
+    const cb = typeof window !== 'undefined' && window.localStorage.getItem("cBlindKey") === "true";
+    setCb(cb);
+  }, []);
+
+  const switchChange = () => {
+    const newCb = !cblind;
+    setCb(newCb);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem("cBlindKey", String(newCb));
+    }
   };
 
   return (

@@ -5,7 +5,7 @@ import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
 import ProjectPromoBox from "../../project/component/ProjectPromoBox";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ProjectProps {
   id: string;
@@ -25,9 +25,15 @@ interface ProjectProps {
 }
 
 export default function ProjectPage({ data }: { data: ProjectProps[] }) {
-  let cb;
-  cb = window.localStorage.getItem("cBlindKey") === "true";
-  const [cblind, setCb] = useState<boolean | undefined>(cb);
+  const [cblind, setCb] = useState<boolean | undefined>(false);
+
+  useEffect(() => {
+    // Check if window is defined (available only in the browser)
+    if (typeof window !== "undefined") {
+      const cb = window.localStorage.getItem("cBlindKey") === "true";
+      setCb(cb);
+    }
+  }, []);
 
   return (
     <>
