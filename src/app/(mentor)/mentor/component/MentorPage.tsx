@@ -6,55 +6,27 @@ import { CiFilter } from "react-icons/ci";
 import MentorBox from "./MentorBox";
 import Link from "next/link";
 
-export default function MentorPage() {
-  const data = [
-    {
-      imageUrl: "/gibs.jpeg",
-      name: "Gibran Fasha Ghazanfar",
-      title: "Software Engineer at OCBC",
-      reviews: 14,
-      sessions: 15,
-    },
-    {
-      imageUrl:
-        "https://i.pinimg.com/564x/d0/05/db/d005dbd521d642d9dfba7bc63c734c19.jpg",
-      name: "John Sinabutar",
-      title: "Software Engineer at Gojek",
-      reviews: 20,
-      sessions: 10,
-    },
-    {
-      imageUrl:
-        "https://i.pinimg.com/564x/5e/96/4b/5e964b4d1a6a514bf141c694f5037537.jpg",
-      name: "Nicholas Hutagalung",
-      title: "UI/UX Designer at DANA",
-      reviews: 10,
-      sessions: 4,
-    },
-    {
-      imageUrl:
-        "https://i.pinimg.com/564x/d1/9a/89/d19a89e479823e4ec4938b82541c3e5e.jpg",
-      name: "Syahrial Alzaidan",
-      title: "Software Engineer at Meta",
-      reviews: 10,
-      sessions: 14,
-    },
-    {
-      imageUrl: "/bewok.jpeg",
-      name: "Auvarifqi Putra Diandra",
-      title: "Data Scientist at Kalbe",
-      reviews: 2,
-      sessions: 10,
-    },
-    {
-      imageUrl:
-        "/niggs.svg",
-      name: "Draymond Blue",
-      title: "Data Engineer at Google",
-      reviews: 20,
-      sessions: 10,
-    },
-  ];
+interface Mentor {
+  id: string;
+  full_name: string;
+  email: string;
+  company: string;
+  specialty: string;
+  bio: string;
+  photo: string;
+  reviews: number;
+  sessions: number;
+  mentees: string[] | null;
+  created_at: string;
+  updated_at: string;
+}
+
+interface MentorPageProps {
+  data: Mentor[];
+}
+
+export default function MentorPage({ data }: MentorPageProps) {
+
 
   return (
     <>
@@ -79,9 +51,7 @@ export default function MentorPage() {
         {/* search & filter area */}
 
         <div className="flex lg:items-center gap-10 lg:flex-row flex-col justify-between">
-          <h1 className="text-4xl font-semibold">
-            Find Mentors Just For You!
-          </h1>
+          <h1 className="text-4xl font-semibold">Find Mentors Just For You!</h1>
 
           <div className="flex md:flex-row  lg:items-center gap-6">
             <div className="shadow-md flex items-center gap-2 rounded-full px-4 py-2 bg-white">
@@ -110,13 +80,15 @@ export default function MentorPage() {
 
         {/* project box section */}
 
-        <div className="flex flex-wrap gap-12 justify-around">
+        <div className="flex flex-wrap gap-16 justify-around">
           {data.map((mentor, index) => (
             <MentorBox
               key={index}
-              imageUrl={mentor.imageUrl}
-              name={mentor.name}
-              title={mentor.title}
+              id={mentor.id}
+              imageUrl={mentor.photo}
+              name={mentor.full_name}
+              title={mentor.specialty}
+              company={mentor.company}
               reviews={mentor.reviews}
               sessions={mentor.sessions}
             />
