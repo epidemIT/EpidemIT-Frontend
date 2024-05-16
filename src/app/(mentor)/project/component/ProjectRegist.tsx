@@ -1,13 +1,16 @@
 "use client";
 
+declare global {
+  interface Window {
+    snap: any;
+  }
+}
+
 import React from "react";
 import Image from "next/image";
+import { useRouter, useSearchParams } from "next/navigation";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 import toast from "react-hot-toast";
 import { Input } from "@/components/ui/input";
@@ -35,27 +38,40 @@ interface ProjectRegistProps {
 }
 
 export default function ProjectRegist({ data }: { data: ProjectRegistProps }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const status_code = searchParams.get("status_code");
+
+  if (status_code === "200") {
+    router.push(`/payment/thanks/${data.id}`);
+  }
+
   const handlePayment = async () => {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_BACKEND_URL + "/api/v1/projects/register",
+    const payload = {
+      id: Math.random().toString(36).substring(7),
+      name: data.name,
+      price: data.price,
+      quantity: 1,
+    };
+
+    const resMidTrans = await fetch(
+      process.env.NEXT_PUBLIC_URL + "/api/tokenizer",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({
-          project_id: data.id,
-          progress: 0,
-        }),
+        body: JSON.stringify(payload),
       }
     );
 
-    const result = await res.json();
-    if (result.success) {
-      toast.success("Pendaftaran Berhasil");
+    const resultMidTrans = await resMidTrans.json();
+
+    if (resultMidTrans.token) {
+      window.snap.pay(resultMidTrans.token);
     } else {
-      toast.error("Pendaftaran Gagal");
+      toast.error("Pembayaran Gagal");
     }
   };
 
@@ -73,7 +89,12 @@ export default function ProjectRegist({ data }: { data: ProjectRegistProps }) {
             <hr className=" mt-2 h-[1px] w-[100%] mx-auto bg-[#8C8C8C]" />
             <div className="md:flex mt-4 gap-10 items-center">
               <div className=" border-[1px] rounded-lg p-2 mt-2 w-[200px]">
-                <Image src="/niggs.svg" alt="Niggs" width={200} height={200} />
+                <Image
+                  src={data.image_url}
+                  alt="Niggs"
+                  width={200}
+                  height={200}
+                />
                 <h2 className="text-[#393939] text-xl font-semibold mt-2">
                   {data.name}
                 </h2>
@@ -94,7 +115,8 @@ export default function ProjectRegist({ data }: { data: ProjectRegistProps }) {
                   ></Input>
                 </div>
                 <button
-                className="py-4 px-[80px] max-w-full bg-[#2FBFA6] text-white rounded-full text-lg ml-auto mt-10"
+                  className="py-4 px-[80px] max-w-full bg-[#2FBFA6] text-white rounded-full text-lg ml-auto mt-10"
+                  onClick={handlePayment}
                 >
                   Bayar
                 </button>

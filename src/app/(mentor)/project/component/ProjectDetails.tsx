@@ -4,6 +4,7 @@ import Skills from "./Skills";
 import { MdOutlineGroup } from "react-icons/md";
 import FinancialAid from "./FinancialAid";
 import ProjectRegist from "./ProjectRegist";
+import { useEffect } from "react";
 
 interface ProjectPromoBoxProps {
   id: string;
@@ -32,6 +33,23 @@ export default function ProjectDetails({
 }: {
   data: ProjectPromoBoxProps;
 }) {
+  useEffect(() => {
+    const snapScript = "https://app.sandbox.midtrans.com/snap/snap.js";
+    const script = document.createElement("script");
+    script.src = snapScript;
+    script.setAttribute(
+      "data-client-key",
+      process.env.NEXT_PUBLIC_CLIENT as string
+    );
+    script.async = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
