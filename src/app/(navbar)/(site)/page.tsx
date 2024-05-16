@@ -2,6 +2,7 @@
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const handleScroll = (id: string) => {
@@ -14,6 +15,16 @@ export default function Home() {
     }
   };
 
+  const [cblind, setCb] = useState<boolean | undefined>(false);
+
+  useEffect(() => {
+    // Check if window is defined (available only in the browser)
+    if (typeof window !== "undefined") {
+      const cb = window.localStorage.getItem("cBlindKey") === "true";
+      setCb(cb);
+    }
+  }, []);
+
   return (
     <div className="">
       <section className="bg-[url('/home-hero.svg')] min-h-screen bg-no-repeat bg-cover py-24">
@@ -25,12 +36,20 @@ export default function Home() {
             >
               EpidemIT
             </h1>
-            <p className="text-secondary-dark lg:text-[#C3FFE3] md:text-2xl text-2xl">
+            <p
+              className={`${
+                !cblind
+                  ? "text-secondary-dark lg:text-[#C3FFE3]"
+                  : "text-orange-400 "
+              }   md:text-2xl text-2xl`}
+            >
               Where IT expertise spreads like wildfire, for everyone
             </p>
             <button
               onClick={() => handleScroll("features")}
-              className="bg-secondary-dark text-white px-12 shadow-2xl text-xl py-2 rounded-full"
+              className={`${
+                !cblind ? "bg-secondary-dark" : "bg-orange-400"
+              } text-white px-12 shadow-2xl text-xl py-2 rounded-full`}
             >
               Start Now {" >"}
             </button>

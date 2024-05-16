@@ -5,6 +5,7 @@ import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
 import MentorBox from "./MentorBox";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 interface Mentor {
   id: string;
@@ -26,23 +27,43 @@ interface MentorPageProps {
 }
 
 export default function MentorPage({ data }: MentorPageProps) {
+  const [cblind, setCb] = useState<boolean | undefined>(false);
 
-
+  useEffect(() => {
+    // Check if window is defined (available only in the browser)
+    if (typeof window !== "undefined") {
+      const cb = window.localStorage.getItem("cBlindKey") === "true";
+      setCb(cb);
+    }
+  }, []);
   return (
     <>
       <div className="flex flex-col gap-12 mt-44 justify-start w-full">
         {/* box for promo */}
-        <div className="w-full flex flex-col gap-8 lg:flex-row lg:items-center justify-between rounded-lg text-white py-6 lg:py-16 px-7 lg:px-14 h-fit lg:h-96 bg-no-repeat bg-cover bg-[url('/proj-bg.svg')]">
+        <div
+          className="w-full flex flex-col gap-8 lg:flex-row lg:items-center justify-between rounded-lg text-white py-6 lg:py-16 px-7 lg:px-14 h-fit lg:h-96 bg-no-repeat bg-cover"
+          style={{
+            backgroundImage: `url(${
+              cblind ? "/proj-bg-purp.svg" : "/proj-bg.svg"
+            })`,
+          }}
+        >
           <div className="flex flex-col gap-8 lg:w-2/5">
             <h1 className="text-4xl lg:text-6xl font-medium">MentorMiit</h1>
-            <p className="text-secondary text-xl lg:text-2xl font-semibold">
+            <p
+              className={`${
+                !cblind ? "text-secondary" : "text-orange-400"
+              } text-xl lg:text-2xl font-semibold`}
+            >
               Guiding Your Growth; Elevate Your Skills with Expert Mentors!
             </p>
           </div>
 
           <Link
             href={"/dashboard/mentor"}
-            className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold"
+            className={`px-4 py-2 ${
+              !cblind ? "bg-secondary-dark" : "bg-orange-400"
+            } rounded-full text-xl font-semibold`}
           >
             My Schedule
           </Link>
@@ -61,17 +82,29 @@ export default function MentorPage({ data }: MentorPageProps) {
                 placeholder="Search Mentors"
                 className="w-full bg-transparent outline-none"
               />
-              <button className="px-4 py-2 bg-secondary-dark rounded-full text-white font-semibold">
+              <button
+                className={`px-4 py-2 ${
+                  cblind ? "bg-purple-500" : "bg-secondary-dark"
+                } rounded-full text-white font-semibold`}
+              >
                 Search
               </button>
             </div>
 
             <div className="flex gap-4 justify-end">
-              <div className="bg-[#119ABE] flex items-center rounded-lg p-1">
+              <div
+                className={`${
+                  cblind ? "bg-purple-500" : "bg-[#119ABE]"
+                } flex items-center rounded-lg p-1`}
+              >
                 <CgSortAz className="text-4xl text-white" />
               </div>
 
-              <div className="bg-[#119ABE] flex items-center rounded-lg p-1">
+              <div
+                className={`${
+                  cblind ? "bg-purple-500" : "bg-[#119ABE]"
+                } flex items-center rounded-lg p-1`}
+              >
                 <CiFilter className="text-4xl text-white" />
               </div>
             </div>
