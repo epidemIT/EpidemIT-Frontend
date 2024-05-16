@@ -4,25 +4,30 @@ import Skills from "./Skills";
 import { useRouter } from "next/navigation";
 
 interface ProjectPromoBoxProps {
+  id: string;
   imageUrl: string;
   projectName: string;
   projectCompany: string;
-  deadline: string;
-  skills: string[];
+  total_hours: number;
+  skills: {
+    id: string;
+    name: string;
+  }[];
 }
 
 export default function ProjectPromoBox({
+  id,
   imageUrl,
   projectName,
   projectCompany,
-  deadline,
+  total_hours,
   skills,
 }: ProjectPromoBoxProps) {
   const router = useRouter();
   return (
     <div
       onClick={() => {
-        router.push("/project/1");
+        router.push(`/project/${id}`);
       }}
       className="flex gap-8 w-[450px] h-[250px] cursor-pointer py-6 px-[2%] shadow-lg rounded-lg"
     >
@@ -36,12 +41,12 @@ export default function ProjectPromoBox({
         <h3 className="text-gray-500">{projectCompany}</h3>
 
         <p>
-          Total Jam Belajar : <span className="font-semibold">{deadline}</span>
+          Total Jam Belajar : <span className="font-semibold">{total_hours}</span>
         </p>
 
         <div className="flex w-full flex-wrap gap-2">
           {skills.map((skill) => (
-            <Skills key={skill} skills={skill} />
+            <Skills key={skill.id} skills={skill.name} />
           ))}
         </div>
       </div>

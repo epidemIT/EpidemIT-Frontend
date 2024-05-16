@@ -114,9 +114,6 @@ export default function ProjectContent({
           <source type="audio/flac" src={audioUrl!} />
         </audio>
       )}
-      <div className="flex justify-center">
-        <Navbar currentPage="dashboard" />
-      </div>
       <div className="w-full flex flex-col lg:flex-row gap-16">
         <div className="lg:w-2/5 flex flex-col gap-12 mt-12">
           <div>

@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import ProjectPage from "./component/ProjectPage";
 import MentorPage from "./component/MentorPage";
 import Footer from "@/components/Footer";
 

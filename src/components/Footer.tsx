@@ -4,7 +4,7 @@ import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <div className="bg-primary flex md:flex-row flex-col py-4 justify-between px-[5%] w-full mt-20 h-48">
+    <div className="bg-primary flex md:flex-row flex-col py-4 justify-between px-[5%] w-screen mt-20 h-48">
       <Image src="/logo-epidemit.svg" width={150} height={50} alt="Logo" />
 
       <div className="flex gap-4 lg:items-center lg:flex-row flex-col justify-between">
