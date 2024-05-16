@@ -88,14 +88,14 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
                 : "text-white"
             } cursor-pointer text-xl`}
           >
-            {String(cblind)}
+            Home
           </Link>
           <Link
             href={"/mentor"}
             className={`${
               currentPage == "Mentor"
                 ? `underline md:no-underline ${
-                    cblind === false ? "text-secondary-dark" : "text-orange-400"
+                    cblind === false ? "text-secondary" : "text-orange-300"
                   }`
                 : "text-white"
             } cursor-pointer text-xl`}
@@ -146,13 +146,13 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
 
       {user?.id ? (
         <div className="flex gap-4">
-          <div className="hidden lg:flex gap-2 justify-center items-center">
+          <div className="hidden lg:flex gap-2 md:justify-center md:items-center">
             <Switch
               checked={cblind}
               onCheckedChange={switchChange}
               className="data-[state=checked]:bg-green-500 "
             />
-            <p className="text-white text-md">{cblind}</p>
+            <p className="text-white text-md">Colorblind Mode</p>
           </div>
           <div className="hidden md:block">
             <ProfileBox name={user.full_name} imgurl={user.photo} />
