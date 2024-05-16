@@ -89,7 +89,7 @@ export default function ProjectDetails({
           <p className="text-xl">{data.short_description}</p>
         </div>
 
-        <div className="bg-[#f1f0f0] w-full flex flex-col justify-center gap-4 p-4 rounded-lg">
+        <div className="bg-[#f1f0f0] md:w-1/5 flex flex-col justify-center gap-4 p-4 rounded-lg">
           <button className="p-2 text-xl text-white bg-secondary-dark rounded-full flex justify-center items-center">
             <ProjectRegist data={data} />
           </button>
