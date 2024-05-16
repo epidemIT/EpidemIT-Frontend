@@ -60,7 +60,7 @@ export default function ProjectDetails({
 
   return (
     <div className="mt-44 flex flex-col md:items-center">
-      <div className="flex md:flex-row flex-col justify-around gap-12">
+      <div className="flex md:flex-row flex-col justify-around w-full gap-12">
         <div className="flex flex-col justify-center bg-gray-100 shadow-xl gap-4 items-center py-6 px-3 rounded-lg">
           <Image src={data.image_url} width={150} height={48} alt="Logo" />
 
