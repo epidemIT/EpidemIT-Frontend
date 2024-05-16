@@ -47,7 +47,7 @@ export default function ProjectContent({
   const handleGetAudio = async (text: string) => {
     const toastId = toast.loading("Generating audio...");
     try {
-      const response = await fetch("http://localhost:3001/api/generate-voice", {
+      const response = await fetch("/api/generate-voice", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +80,7 @@ export default function ProjectContent({
   const handleSummarize = async (text: string) => {
     const toastId = toast.loading("Summarizing text...");
     try {
-      const response = await fetch("http://localhost:3001/api/summary", {
+      const response = await fetch("/api/summary", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
