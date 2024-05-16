@@ -5,27 +5,39 @@ import Review from "./Review";
 import MentorBox from "../component/MentorBox";
 import MentorModal from "../component/MentorModal";
 
-export default function MentorDetails() {
+interface Mentor {
+  id: string;
+  full_name: string;
+  email: string;
+  company: string;
+  specialty: string;
+  bio: string;
+  photo: string;
+  mentees: string[] | null;
+  reviews: number;
+  sessions: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export default function MentorDetails({ data }: { data: Mentor }) {
   return (
     <div className="mt-44 flex flex-col md:items-center">
       <div className="flex md:flex-row w-full items-center flex-col justify-between gap-12">
-        <div className="w-1/2">
-          <div className="w-56 aspect-square bg-slate-300 rounded-full relative overflow-hidden">
-            <Image
-              src={"/bewok.jpeg"}
-              fill={true}
-              alt="profile"
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </div>
+        <Image
+          src={data.photo}
+          alt="profile"
+          width={128}
+          height={128}
+          className="w-40 h-40 aspect-square object-cover rounded-full"
+        />
 
         <div className="flex flex-col md:w-3/4 gap-4">
           <h1 className="text-4xl text-primary font-semibold">
-            Auvarifqi Putra Diandra
+            {data.full_name}
           </h1>
           <p className="text-2xl text-[#2A638B] font-semibold">
-            Data Scientist at Kalbe
+            {data.specialty} at {data.company}
           </p>
         </div>
 
@@ -37,22 +49,14 @@ export default function MentorDetails() {
       <div className="flex flex-col gap-4 mt-20">
         <h1 className="font-semibold text-2xl">Overview</h1>
 
-        <p className="text-lg">
-          With 15+ years of HR and Organizational Development experience,
-          I`&apos;`m dedicated to shaping organizations through mentorship.
-          Armed with a Bachelor`&apos;`s in Computer Science, a Master`&apos;`s
-          in HR, and SHRM-SCP certification, I offer practical insights.
-          I`&apos;`ve worked with diverse organizations, from startups to
-          industry leaders, spanning e-Commerce, finance, education, and HR
-          consulting.
-        </p>
+        <p className="text-lg">{data.bio}</p>
       </div>
 
       <div className="flex md:flex-row flex-col justify-between gap-20 mt-20">
         <div className="flex flex-col gap-8">
           <h1 className="text-2xl text-primary font-semibold">Experience</h1>
           <Experience
-            title="Data Scientist"
+            title={data.specialty}
             year="2020 - Present"
             description="Design and develop operational optimization models in logistics to enhance efficiency and reduce costs.
             Perform operational research and modeling to support dynamic pricing strategies.
@@ -60,7 +64,7 @@ export default function MentorDetails() {
           />
 
           <Experience
-            title="Zeus"
+            title={data.specialty}
             year="2023"
             description="Enabled a committee of 170+ and 300+ participants in conducting overall 3 months series of events.
             Responsible for leading the committee and participants in 10 training event (Seminar, Mentoring, &
@@ -99,25 +103,31 @@ export default function MentorDetails() {
           Similar Mentor Profiles
         </h1>
 
-        <div className="flex flex-wrap gap-12 justify-center w-full">
+        <div className="flex flex-wrap gap-24 justify-between w-full">
           <MentorBox
             name="Syahrial Alzaidan"
-            title="Software Engineer at Meta"
+            company="Meta"
+            title="Software Engineer"
+            id="1"
             imageUrl="/niggs.svg"
             reviews={5}
             sessions={4.5}
           />
           <MentorBox
+            id="1"
             name="Agita Ardelia"
-            title="Business Development at Shopee"
+            title="Business Development"
+            company="Shopee"
             imageUrl="/agit_decrypted.jpeg"
             reviews={5}
             sessions={4.5}
           />
           <MentorBox
+            id="2"
             name="Hj. Gibran Fasha Ghazanfar"
-            title="Software Engineer at OCBC"
+            title="Software Engineer"
             imageUrl="/gibs.jpeg"
+            company="OCBC"
             reviews={5}
             sessions={4.5}
           />

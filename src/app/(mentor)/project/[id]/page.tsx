@@ -4,10 +4,11 @@ import ProjectDetails from "../component/ProjectDetails";
 
 export default function Page() {
   return (
-    <div className="flex flex-col px-[6%] min-h-screen items-center pt-8">
-      <ProjectDetails />
-
+    <>
+      <div className="flex flex-col px-[6%] min-h-screen items-center pt-8">
+        <ProjectDetails />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
