@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { cookies } from "next/headers";
 import ProjectPage from "../mentor/component/ProjectPage";
+import Footer from "@/components/Footer";
 
 export default async function Page() {
   const cookie = cookies();
@@ -29,8 +30,11 @@ export default async function Page() {
   const data = await res.json();
 
   return (
-    <div className="flex flex-col px-[6%] items-center pt-8">
-      <ProjectPage data={data} />
-    </div>
+    <>
+      <div className="flex flex-col px-[6%] items-center pt-8">
+        <ProjectPage data={data} />
+      </div>
+      <Footer />
+    </>
   );
 }

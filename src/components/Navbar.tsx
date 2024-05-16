@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import Image from "next/image";
 import ProfileBox from "./ProfileBox";
 import MenuIcon from "./MenuIcon";
@@ -14,7 +14,17 @@ interface NavbarProps {
 }
 
 export default function Navbar({ currentPage, home, user }: NavbarProps) {
-  const [cblind, setCblind] = useState(false);
+  let cb;
+  if (window.localStorage.getItem("cBlindKey") === undefined) {
+    window.localStorage.setItem("cBlindKey", "false");
+  }
+  cb = window.localStorage.getItem("cBlindKey") === "true";
+  const [cblind, setCb] = useState<boolean | undefined>(cb);
+  const switchChange = () => {
+    window.localStorage.setItem("cBlindKey", String(!cblind));
+    setCb(!cblind);
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -54,7 +64,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
     <nav
       className={`${
         home && !scrolled ? "bg-transparent" : "bg-primary"
-      } w-full py-4 px-20 flex items-center justify-between ${
+      } w-full py-4 pl-20 pr-6 flex items-center justify-between ${
         home ? "rounded-none" : "rounded-2xl"
       } transition-colors duration-300 z-50`}
     >
@@ -85,7 +95,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
             className={`${
               currentPage == "Mentor"
                 ? `underline md:no-underline ${
-                    cblind === false ? "text-secondary-dark" : "text-orange-400"
+                    cblind === false ? "text-secondary" : "text-orange-300"
                   }`
                 : "text-white"
             } cursor-pointer text-xl`}
@@ -104,14 +114,16 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
           >
             Project
           </Link>
-          <div>
-            <Switch checked={cblind} onCheckedChange={setCblind} />
-            <p className="text-white text-lg">Colorblind Mode</p>
-          </div>
 
           {user?.id ? (
-            <div className="md:hidden block">
-              <ProfileBox name={user.full_name} imgurl={user.photo} />
+            <div className="flex flex-col items-center gap-2">
+              <div className="md:hidden block">
+                <ProfileBox name={user.full_name} imgurl={user.photo} />
+              </div>
+              <div className="flex lg:hidden flex-col gap-2 justify-center items-center">
+                <Switch checked={cblind} onCheckedChange={switchChange} />
+                <p className="text-white text-lg">Colorblind Mode</p>
+              </div>
             </div>
           ) : (
             <div className="md:hidden flex flex-col items-center gap-6">
@@ -133,8 +145,18 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
       </div>
 
       {user?.id ? (
-        <div className="hidden md:block">
-          <ProfileBox name={user.full_name} imgurl={user.photo} />
+        <div className="flex gap-4">
+          <div className="hidden lg:flex gap-2 md:justify-center md:items-center">
+            <Switch
+              checked={cblind}
+              onCheckedChange={switchChange}
+              className="data-[state=checked]:bg-green-500 "
+            />
+            <p className="text-white text-md">Colorblind Mode</p>
+          </div>
+          <div className="hidden md:block">
+            <ProfileBox name={user.full_name} imgurl={user.photo} />
+          </div>
         </div>
       ) : (
         <div className="md:flex gap-6 hidden">

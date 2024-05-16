@@ -3,7 +3,6 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
-import Footer from "@/components/Footer";
 import MentorBox from "./MentorBox";
 import Link from "next/link";
 
@@ -126,7 +125,6 @@ export default function MentorPage() {
 
         {/* Footer */}
       </div>
-      <Footer />
     </>
   );
 }

@@ -4,8 +4,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { CgSortAz } from "react-icons/cg";
 import { CiFilter } from "react-icons/ci";
 import ProjectPromoBox from "../../project/component/ProjectPromoBox";
-import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useState } from "react";
 
 interface ProjectProps {
   id: string;
@@ -25,6 +25,10 @@ interface ProjectProps {
 }
 
 export default function ProjectPage({ data }: { data: ProjectProps[] }) {
+  let cb;
+  cb = window.localStorage.getItem("cBlindKey") === "true";
+  const [cblind, setCb] = useState<boolean | undefined>(cb);
+
   return (
     <>
       <div className="flex flex-col gap-12 justify-start w-full mt-44">
@@ -32,14 +36,20 @@ export default function ProjectPage({ data }: { data: ProjectProps[] }) {
         <div className="w-full flex flex-col gap-8 lg:flex-row lg:items-center justify-between rounded-lg text-white py-6 lg:py-16 px-7 lg:px-14 h-fit lg:h-96 bg-no-repeat bg-cover bg-[url('/proj-bg.svg')]">
           <div className="flex flex-col gap-8 lg:w-2/5">
             <h1 className="text-4xl lg:text-6xl font-medium">ProjectiT!</h1>
-            <p className="text-secondary text-xl lg:text-2xl font-semibold">
+            <p
+              className={`${
+                !cblind ? "text-secondary-dark" : "text-orange-400"
+              } text-xl lg:text-2xl font-semibold`}
+            >
               Guiding Your Growth; Elevate Your Skills with Real Projects!
             </p>
           </div>
 
           <Link
             href="/dashboard/project"
-            className="px-4 py-2 bg-secondary-dark rounded-full text-xl font-semibold"
+            className={`px-4 py-2 ${
+              !cblind ? "bg-secondary-dark" : "bg-orange-400"
+            } rounded-full text-xl font-semibold`}
           >
             My Project
           </Link>
@@ -95,7 +105,6 @@ export default function ProjectPage({ data }: { data: ProjectProps[] }) {
 
         {/* Footer */}
       </div>
-      <Footer />
     </>
   );
 }

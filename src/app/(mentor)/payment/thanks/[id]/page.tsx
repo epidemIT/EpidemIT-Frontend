@@ -30,7 +30,6 @@ const page = async ({ params }: { params: { id: string } }) => {
 
   return (
     <Thanks
-      params={params}
       token={token as RequestCookie}
       resultDB={resultDB}
     />
