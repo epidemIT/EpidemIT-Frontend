@@ -6,6 +6,7 @@ import MenuIcon from "./MenuIcon";
 import Link from "next/link";
 import { User } from "./UserFetcher";
 import { Switch } from "@/components/ui/switch";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   currentPage?: string;
@@ -17,6 +18,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
   const [cblind, setCb] = useState<boolean | undefined>(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleResize = () => {
@@ -49,7 +51,7 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
   useEffect(() => {
     const cb = typeof window !== 'undefined' && window.localStorage.getItem("cBlindKey") === "true";
     setCb(cb);
-  }, []);
+  }, [cblind]);
 
   const switchChange = () => {
     const newCb = !cblind;
@@ -57,6 +59,8 @@ export default function Navbar({ currentPage, home, user }: NavbarProps) {
     if (typeof window !== 'undefined') {
       window.localStorage.setItem("cBlindKey", String(newCb));
     }
+
+    window.location.reload();
   };
 
   return (
