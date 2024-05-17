@@ -63,6 +63,7 @@ export default function MentorDashboard({ data }: { data: MentorApplied[] }) {
           <div className="flex flex-col gap-12">
             {data.map((mentor) => (
               <MentorBoxDashboard
+                key={mentor.id}
                 imageUrl={mentor.mentor.photo}
                 date="Thu, 09 May"
                 time="08.30 - 11.00"
