@@ -21,9 +21,11 @@ interface ProjectProps {
 export default function ProjectBoxDashboard({
   project,
   progress,
+  isEnrolled,
 }: {
   project: ProjectProps;
   progress: number;
+  isEnrolled: boolean;
 }) {
   const router = useRouter();
 
@@ -50,7 +52,7 @@ export default function ProjectBoxDashboard({
               ? `${project?.partner_description?.substring(0, 100)}...`
               : project?.partner_description}
           </p>
-          {progress && project?.partner_name == "Tokopedia"  ? (
+          {isEnrolled  ? (
             <>
               <p className="font-semibold mt-4">Progress</p>
               <ProgressBar

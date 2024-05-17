@@ -61,6 +61,7 @@ const Project = ({ data }: { data: ProjectProps[] }) => {
             {data.map((el, index: number) => (
               <Link key={index} href={`/dashboard/project/${el.project.id}`}>
                 <ProjectBoxDashboard
+                  isEnrolled={true}
                   project={el.project}
                   progress={el.progress*100}
                 />

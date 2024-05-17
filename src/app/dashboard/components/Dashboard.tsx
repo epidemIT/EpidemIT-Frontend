@@ -77,6 +77,7 @@ export default function Dashboard({
               {dataproject.map((project) => (
                 <ProjectBoxDashboard
                   key={project.project.id}
+                  isEnrolled={true}
                   project={project.project}
                   progress={project.progress}
                 />
@@ -132,6 +133,7 @@ export default function Dashboard({
               partner_description:
                 "This project involves beginner-level data analysis training for Data Insights. Participants will learn beginner techniques and tools for data science and analytics.",
             }}
+            isEnrolled={false}
             progress={71}
           />
         </div>
