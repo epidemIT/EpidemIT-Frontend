@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
   const handleScroll = (id: string) => {
@@ -14,6 +16,12 @@ export default function Home() {
       });
     }
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
 
   const [cblind, setCb] = useState<boolean | undefined>(false);
 
@@ -29,8 +37,17 @@ export default function Home() {
     <div className="">
       <section className="bg-[url('/home-hero.svg')] min-h-screen bg-no-repeat bg-cover py-24">
         <div className="flex pb-20 h-[1000px] lg:h-full gap-28 px-[5%] mt-8 flex-col justify-between lg:items-center xl:flex-row lg:justify-center">
-          <Image src="/laptop-hero.svg" width={570} height={50} alt="Logo" />
-          <div className="flex flex-col items-start lg:justify-center gap-4 lg:w-1/4">
+          <Image
+            src="/laptop-hero.svg"
+            width={570}
+            height={50}
+            alt="Logo"
+            data-aos="fade-right"
+          />
+          <div
+            data-aos="fade-left"
+            className="flex flex-col items-start lg:justify-center gap-4 lg:w-1/4"
+          >
             <h1
               className={`text-primary lg:text-white text-6xl md:text-8xl font-bold`}
             >
@@ -58,7 +75,7 @@ export default function Home() {
       </section>
 
       <section className="bg-[#3273A0] px-[15%] py-8">
-        <div className="flex flex-col items-center gap-8 py-28">
+        <div className="flex flex-col items-center gap-8 py-28" data-aos="fade-left">
           <h2 className="text-white text-4xl font-bold">Why EpidemIT?</h2>
           <p className="text-white text-2xl">
             At epidemIT, we believe in inclusive IT education for all. Our
@@ -84,7 +101,7 @@ export default function Home() {
       <section className="items-center flex flex-col gap-8 py-28" id="features">
         <h1 className="font-semibold text-4xl">Features</h1>
         <div className="flex flex-col lg:flex-row px-20 gap-20">
-          <div className="rounded-lg max-w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-2 lg:px-8">
+          <div data-aos="fade-right" className="rounded-lg max-w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-2 lg:px-8">
             <Image
               src="/mentor-landing.svg"
               width={250}
@@ -107,7 +124,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-lg max-w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-8">
+          <div data-aos="fade-left" className="rounded-lg max-w-96 flex flex-col justify-between items-center gap-4 shadow-xl py-6 px-8">
             <Image
               src="/project-landing.svg"
               width={200}

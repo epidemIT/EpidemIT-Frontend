@@ -24,9 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" href="/logo-gambar.png" />
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
       <body className={roboto.className}>
         <ToasterContext />
-  
+
         {children}
       </body>
     </html>
