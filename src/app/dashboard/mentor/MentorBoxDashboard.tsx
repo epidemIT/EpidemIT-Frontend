@@ -16,9 +16,15 @@ export default function MentorBoxDashboard({
   time,
 }: MentorBoxDashboardProps) {
   return (
-    <div className="p-2 flex flex-col xl:flex-row gap-2 xl:gap-20 shadow-xl">
+    <div className="p-2 pr-12 flex flex-col xl:flex-row justify-between gap-2 xl:gap-20 shadow-xl">
       <div className="flex justify-center">
-        <Image src={imageUrl} width={200} height={100} alt="Mentor" />
+        <Image
+          src={imageUrl}
+          width={200}
+          height={100}
+          alt="Mentor"
+          className="w-40 h-40 aspect-square object-cover rounded-lg"
+        />
       </div>
       <div className="flex flex-col py-8 justify-between">
         <h1 className="text-2xl">

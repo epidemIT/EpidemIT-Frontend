@@ -36,9 +36,6 @@ const FinancialAid = () => {
   const sendEmail = async () => {
     setModal1(false);
     setModal2(true);
-
-    console.log(token)
-
     const response = await fetch(
       process.env.NEXT_PUBLIC_BACKEND_URL +
         "/api/v1/projects/apply/financialaid",
@@ -55,8 +52,6 @@ const FinancialAid = () => {
     } else {
       toast.error("Failed to send email");
     }
-
-    console.log(response)
   };
 
   return (

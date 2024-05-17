@@ -4,36 +4,30 @@ import Sidebar from "../components/Sidebar";
 import Empty from "../components/Empty";
 import MentorBoxDashboard from "./MentorBoxDashboard";
 
-export default function MentorDashboard() {
+interface Mentor {
+  id: string;
+  full_name: string;
+  email: string;
+  company: string;
+  specialty: string;
+  bio: string;
+  photo: string;
+  mentees: string[] | null;
+  reviews: number;
+  sessions: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface MentorApplied {
+  id: string;
+  mentor: Mentor;
+  user_id: string;
+}
+
+export default function MentorDashboard({ data }: { data: MentorApplied[] }) {
   const empty = false;
   const [completed, setCompleted] = useState(false);
-
-  const data = [
-    {
-      project: {
-        id: "1",
-        title: "Project 1",
-        description: "Description 1",
-        users: ["User 1", "User 2"],
-        skills: ["Skill 1", "Skill 2"],
-        created_at: "2021-09-01",
-        updated_at: "2021-09-01",
-      },
-      progress: 50,
-    },
-    {
-      project: {
-        id: "2",
-        title: "Project 2",
-        description: "Description 2",
-        users: ["User 1", "User 2"],
-        skills: ["Skill 1", "Skill 2"],
-        created_at: "2021-09-01",
-        updated_at: "2021-09-01",
-      },
-      progress: 100,
-    },
-  ];
 
   return (
     <div className="min-h-screen flex gap-2 md:gap-16 text-primary ">
@@ -67,12 +61,14 @@ export default function MentorDashboard() {
           <Empty />
         ) : (
           <div className="flex flex-col gap-12">
-            <MentorBoxDashboard
-              imageUrl="/bewok.jpeg"
-              date="Thu, 09 May"
-              time="08.30 - 11.00"
-              mentorName="Auvarifqi Putra"
-            />
+            {data.map((mentor) => (
+              <MentorBoxDashboard
+                imageUrl={mentor.mentor.photo}
+                date="Thu, 09 May"
+                time="08.30 - 11.00"
+                mentorName={mentor.mentor.full_name}
+              />
+            ))}
           </div>
         )}
       </div>

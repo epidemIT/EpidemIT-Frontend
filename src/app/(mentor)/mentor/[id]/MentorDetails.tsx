@@ -42,7 +42,7 @@ export default function MentorDetails({ data }: { data: Mentor }) {
         </div>
 
         <div className="md:w-4/5 flex flex-col justify-end items-end gap-4 p-4 rounded-lg">
-          <MentorModal />
+          <MentorModal data={data} />
         </div>
       </div>
 
@@ -115,10 +115,10 @@ export default function MentorDetails({ data }: { data: Mentor }) {
           />
           <MentorBox
             id="1"
-            name="Agita Ardelia"
+            name="Nicho"
             title="Business Development"
             company="Shopee"
-            imageUrl="/agit_decrypted.jpeg"
+            imageUrl="https://i.pinimg.com/564x/18/de/8e/18de8e496a8afb20b858181413c54887.jpg"
             reviews={5}
             sessions={4.5}
           />
