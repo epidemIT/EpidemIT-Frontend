@@ -43,6 +43,7 @@ const FinancialAid = () => {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "*",
         },
       }
     );
